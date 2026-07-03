@@ -47,8 +47,44 @@ Core goals of the landing page:
 │   ├── app/
 │   │   ├── App.tsx
 │   │   └── components/
+│   ├── components/
+│   │   ├── forms/
+│   │   ├── layout/
+│   │   └── ui/
+│   ├── data/
+│   │   ├── faqs.ts
+│   │   ├── insights.ts
+│   │   ├── leadership.ts
+│   │   ├── navigation.ts
+│   │   ├── opportunities.ts
+│   │   ├── process.ts
+│   │   ├── reasons.ts
+│   │   ├── stats.ts
+│   │   └── testimonials.ts
+│   ├── lib/
+│   │   └── supabaseClient.ts
 │   ├── main.tsx
-│   └── styles/
+│   ├── sections/
+│   │   ├── CtaSection.tsx
+│   │   ├── FaqSection.tsx
+│   │   ├── HeroSection.tsx
+│   │   ├── InsightsSection.tsx
+│   │   ├── LeadershipSection.tsx
+│   │   ├── OpportunitiesSection.tsx
+│   │   ├── ProcessSection.tsx
+│   │   ├── StatsSection.tsx
+│   │   ├── TestimonialsSection.tsx
+│   │   └── WhyChooseSection.tsx
+│   ├── styles/
+│   │   ├── fonts.css
+│   │   ├── globals.css
+│   │   ├── index.css
+│   │   ├── tailwind.css
+│   │   └── theme.css
+│   ├── types/
+│   │   └── index.ts
+│   └── utils/
+│       └── constants.ts
 ├── guidelines/
 ├── index.html
 ├── package.json
