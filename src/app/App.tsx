@@ -26,6 +26,9 @@ import InsightsSection from '../sections/InsightsSection';
 import FaqSection from '../sections/FaqSection';
 import CtaSection from '../sections/CtaSection';
 
+import { SpeedInsights } from "@vercel/speed-insights/react"
+
+
 export default function App() {
   return (
     <div className="min-h-screen bg-background overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
@@ -45,6 +48,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <SpeedInsights/>
     </div>
   );
 }
