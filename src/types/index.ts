@@ -82,3 +82,13 @@ export interface ConsultationFormData {
   budget: string;
   propertyTypes: string[];
 }
+
+
+export interface ConsultationFormData {
+  name: string;
+  phone: string;
+  countryCode: string; // e.g. "+91"
+  email: string;
+  budget: string;
+  propertyTypes: string[];
+}

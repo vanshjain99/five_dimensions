@@ -33,3 +33,19 @@ export const BUDGET_OPTIONS = [
   '₹3 Crore – ₹10 Crore',
   '₹10 Crore+',
 ] as const;
+
+
+export const COUNTRY_CODES = [
+  { name: 'India', dialCode: '+91', flag: '🇮🇳' },
+  { name: 'United States', dialCode: '+1', flag: '🇺🇸' },
+  { name: 'United Kingdom', dialCode: '+44', flag: '🇬🇧' },
+  { name: 'UAE', dialCode: '+971', flag: '🇦🇪' },
+  { name: 'Singapore', dialCode: '+65', flag: '🇸🇬' },
+  { name: 'Canada', dialCode: '+1', flag: '🇨🇦' },
+  { name: 'Australia', dialCode: '+61', flag: '🇦🇺' },
+  { name: 'Saudi Arabia', dialCode: '+966', flag: '🇸🇦' },
+  { name: 'Qatar', dialCode: '+974', flag: '🇶🇦' },
+  { name: 'Germany', dialCode: '+49', flag: '🇩🇪' },
+  { name: 'France', dialCode: '+33', flag: '🇫🇷' },
+  { name: 'Hong Kong', dialCode: '+852', flag: '🇭🇰' },
+] as const;
