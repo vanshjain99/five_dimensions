@@ -1,75 +1,207 @@
 # Five Dimensions — Luxury Real Estate Landing Page
 
-A premium luxury real estate landing page built with React, TypeScript, and Vite.  
-Designed to present high-end property advisory services with a modern, elegant, and conversion-focused experience.
+A premium, conversion-focused luxury real estate landing page built with **React**, **TypeScript**, and **Vite**.
 
-## Overview
+This project presents high-end property advisory services through a polished dark theme, premium typography, and a responsive user journey from first impression to consultation inquiry.
 
-Five Dimensions is a luxury real estate marketing site inspired by a Figma design. It includes:
+---
 
-- A visually rich hero section with consultation form
-- Trust indicators and value propositions
-- Portfolio, services, and process sections
-- Testimonials and FAQ content
-- Final call-to-action and footer
+## ✨ Highlights
 
-The layout uses a dark luxury theme, gold accents, and responsive components to deliver a refined user experience across devices.
+- Elegant, luxury-themed marketing website
+- Responsive layout optimized for mobile, tablet, and desktop
+- Clear conversion path with consultation form and call-to-action sections
+- Modular React component architecture for easy iteration
+- Built with a modern TypeScript + Vite frontend toolchain
 
-## Tech Stack
+---
+
+## 🧭 Overview
+
+Five Dimensions is a single-page marketing experience inspired by a Figma concept for luxury real estate services.
+
+The page is organized into focused sections that communicate trust, expertise, and premium positioning:
+
+- Hero section with value proposition and consultation form
+- Trust indicators and benefits
+- Portfolio/services showcase
+- Process and differentiation content
+- Testimonials and FAQ
+- Final CTA and footer
+
+The visual direction emphasizes a **dark luxury palette** with **gold accents**, high contrast, and structured spacing.
+
+---
+
+## 🛠 Tech Stack
 
 - **React**
 - **TypeScript**
 - **Vite**
 - **Tailwind CSS**
-- **Lucide React** for icons
+- **Lucide React** (icons)
 
-## Features
+---
 
-- Responsive luxury landing page
-- Interactive consultation form
-- Premium visual styling with custom design system
-- Modular component structure
-- Smooth scrolling navigation
-- Ready for further customization or deployment
+## 📁 Project Structure
 
-## Getting Started
+```text
+.
+├── src/
+│   ├── app/
+│   │   ├── App.tsx                  # Main page composition
+│   │   └── components/              # Reusable page sections/components
+│   ├── main.tsx                     # Application bootstrap
+│   └── styles/                      # Global/project styles
+├── public/                          # Static assets
+├── package.json                     # Scripts and dependencies
+├── tsconfig.json                    # TypeScript configuration
+└── README.md
+```
 
-### Prerequisites
+> Exact structure may evolve as the project grows.
 
-- Node.js
-- npm
+---
 
-### Installation
+## ✅ Prerequisites
+
+Install the following locally:
+
+- **Node.js** (LTS recommended)
+- **npm**
+
+Check versions:
+
+```bash
+node -v
+npm -v
+```
+
+---
+
+## 🚀 Getting Started
+
+### 1) Clone the repository
+
+```bash
+git clone https://github.com/vanshjain99/five_dimensions.git
+cd five_dimensions
+```
+
+### 2) Install dependencies
 
 ```bash
 npm install
 ```
 
-### Run the development server
+### 3) Run development server
 
 ```bash
 npm run dev
 ```
 
-## Project Structure
+### 4) Open in browser
 
-- `src/main.tsx` — App entry point
-- `src/app/App.tsx` — Main page composition
-- `src/app/components/` — Reusable UI sections and form components
-- `src/styles/` — Global styling
+Use the local URL shown in your terminal (commonly `http://localhost:5173`).
 
-## Design Reference
+---
 
-This project is based on a Figma design:
+## 📜 Scripts
+
+Common scripts in this project:
+
+- `npm run dev` — start development server
+- `npm run build` — build for production
+- `npm run preview` — preview production build locally
+
+If additional scripts (lint/test/format) are added, they will appear in `package.json`.
+
+---
+
+## 🧪 Build for Production
+
+```bash
+npm run build
+```
+
+Vite outputs optimized assets to the `dist/` directory.
+
+To preview locally:
+
+```bash
+npm run preview
+```
+
+---
+
+## 🌐 Deployment
+
+This project can be deployed to any static hosting provider, including:
+
+- **Vercel**
+- **Netlify**
+- **GitHub Pages**
+
+Typical flow:
+
+1. Run `npm run build`
+2. Deploy the generated `dist/` folder
+
+---
+
+## 🎨 Design Reference
+
+Figma source:
 
 https://www.figma.com/design/Rh0IfvK2wYqCvMD5KqrPXu/Luxury-Real-Estate-Landing-Page
 
-## Notes
+---
 
-- Form interactions are currently client-side only.
-- The project is intended as a landing page / lead-generation experience.
-- You can extend it with backend form handling, analytics, or CMS integration.
+## 🔭 Roadmap Ideas
 
-## License
+Potential next enhancements:
 
-No license has been specified yet.
+- Backend integration for consultation form submission
+- Form validation + success/error states
+- Analytics/event tracking
+- SEO improvements (meta tags, OG tags, sitemap)
+- CMS-backed content for testimonials/properties
+- Accessibility audit and refinements
+
+---
+
+## 🤝 Contributing
+
+Contributions and improvements are welcome.
+
+1. Fork the repository
+2. Create a feature branch
+   ```bash
+   git checkout -b feature/your-feature
+   ```
+3. Commit your changes
+   ```bash
+   git commit -m "feat: describe your change"
+   ```
+4. Push your branch
+   ```bash
+   git push origin feature/your-feature
+   ```
+5. Open a Pull Request
+
+---
+
+## 🐛 Issues
+
+Found a bug or have a feature request?
+
+Open an issue here:
+https://github.com/vanshjain99/five_dimensions/issues
+
+---
+
+## 📄 License
+
+No license is currently specified.
+
+If you plan to open-source this project, consider adding a `LICENSE` file (e.g., MIT).
