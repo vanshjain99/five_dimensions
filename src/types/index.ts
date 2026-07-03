@@ -68,6 +68,12 @@ export interface Leader {
   alt: string;
 }
 
+/** A real estate developer partner shown in the logo strip */
+export interface BuilderPartner {
+  name: string;
+  Logo: React.ComponentType<{ className?: string }>;
+}
+
 /** Navigation link entry */
 export interface NavLink {
   label: string;

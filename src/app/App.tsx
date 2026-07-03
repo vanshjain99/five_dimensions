@@ -8,7 +8,7 @@
  *   respective section and component files.
  *
  * Section order:
- *   Hero → Stats → Leadership → Opportunities → Why Choose →
+ *   Hero → Stats → Leadership → Builder Partners → Opportunities → Why Choose →
  *   Process → Testimonials → Insights → FAQ → CTA
  */
 
@@ -18,6 +18,7 @@ import Footer from '../components/layout/Footer';
 import HeroSection from '../sections/HeroSection';
 import StatsSection from '../sections/StatsSection';
 import LeadershipSection from '../sections/LeadershipSection';
+import BuilderPartnersSection from '../sections/BuilderPartnersSection';
 import OpportunitiesSection from '../sections/OpportunitiesSection';
 import WhyChooseSection from '../sections/WhyChooseSection';
 import ProcessSection from '../sections/ProcessSection';
@@ -38,6 +39,7 @@ export default function App() {
         <HeroSection />
         <StatsSection />
         <LeadershipSection />
+        <BuilderPartnersSection />
         <OpportunitiesSection />
         <WhyChooseSection />
         <ProcessSection />
