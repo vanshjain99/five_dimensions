@@ -1,0 +1,47 @@
+PROPRIETARY LICENSE
+
+Copyright © 2026 Five Dimensions. All rights reserved.
+
+GRANT OF LICENSE
+This software and its source code are proprietary and confidential property of Five Dimensions.
+No license is granted to you except as explicitly stated in this agreement.
+
+PERMITTED USE
+You may view and interact with this repository for the purpose of:
+- Contributing code improvements via pull requests
+- Reporting and discussing issues
+- Reviewing existing code
+
+RESTRICTIONS
+You may NOT:
+- Copy, reproduce, or distribute this software or source code
+- Create derivative works or modify the code for external use
+- Use this software for any commercial purpose outside of Five Dimensions
+- Reverse engineer, decompile, or disassemble the software
+- Share access or credentials with unauthorized parties
+- Use this code as a basis for competing products or services
+
+CONTRIBUTIONS
+Any contributions submitted via pull requests become part of this proprietary software.
+By submitting a pull request, you agree that:
+- Your contributions will become the property of Five Dimensions
+- Five Dimensions has the right to use, modify, and distribute your contributions
+- You have the authority to grant these rights
+
+DISCLAIMER
+THIS SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+IN NO EVENT SHALL FIVE DIMENSIONS BE LIABLE FOR ANY DAMAGES OR LIABILITIES ARISING
+FROM THE USE OR INABILITY TO USE THIS SOFTWARE.
+
+TERMINATION
+This license is effective until terminated. Your rights terminate automatically if you
+violate any terms of this license. Upon termination, you must destroy all copies of
+the software in your possession.
+
+GOVERNING LAW
+This license is governed by and construed in accordance with applicable law.
+
+For questions regarding this license, please contact the maintainers.
