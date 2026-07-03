@@ -13,7 +13,7 @@ import { Footer } from "./components/Footer";
 export default function App() {
   return (
     <div
-      className="min-h-screen scroll-smooth"
+      className="min-h-screen scroll-smooth overflow-x-hidden"
       style={{ background: NAVY, color: "#F5F0E8", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
     >
       <Navbar />

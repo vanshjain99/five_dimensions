@@ -48,7 +48,7 @@ export function PhoneInput({
           <button
             type="button"
             onClick={() => setOpen(o => !o)}
-            className="flex items-center gap-1.5 h-full px-3.5 py-4 rounded-xl text-base text-white outline-none transition-all duration-200"
+            className="flex items-center gap-1 sm:gap-1.5 h-full px-2.5 sm:px-3.5 py-3.5 sm:py-4 rounded-xl text-sm sm:text-base text-white outline-none transition-all duration-200"
             style={{
               background: "rgba(255,255,255,0.045)",
               border: `1px solid ${open || focused ? "rgba(201,168,76,0.55)" : "rgba(255,255,255,0.08)"}`,
@@ -62,7 +62,7 @@ export function PhoneInput({
 
           {open && (
             <div
-              className="absolute z-20 mt-2 w-72 rounded-xl overflow-hidden"
+              className="absolute z-20 mt-2 w-[min(18rem,85vw)] rounded-xl overflow-hidden"
               style={{
                 background: "#0D1A2E",
                 border: "1px solid rgba(201,168,76,0.25)",
@@ -113,7 +113,7 @@ export function PhoneInput({
           required={required}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
-          className="flex-1 min-w-0 px-5 py-4 rounded-xl text-base text-white placeholder-white/20 outline-none transition-all duration-200"
+          className="flex-1 min-w-0 px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl text-base text-white placeholder-white/20 outline-none transition-all duration-200"
           style={{
             background: "rgba(255,255,255,0.045)",
             border: `1px solid ${focused ? "rgba(201,168,76,0.55)" : "rgba(255,255,255,0.08)"}`,

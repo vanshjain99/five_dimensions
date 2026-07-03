@@ -29,7 +29,7 @@ export function FormInput({
         required={required}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        className="w-full px-5 py-4 rounded-xl text-base text-white placeholder-white/20 outline-none transition-all duration-200"
+        className="w-full px-4 py-3.5 sm:px-5 sm:py-4 rounded-xl text-base text-white placeholder-white/20 outline-none transition-all duration-200"
         style={{
           background: "rgba(255,255,255,0.045)",
           border: `1px solid ${focused ? "rgba(201,168,76,0.55)" : "rgba(255,255,255,0.08)"}`,

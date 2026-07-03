@@ -52,7 +52,7 @@ export function FAQ() {
               style={subtleCard}
             >
               <Accordion.Trigger
-                className="w-full flex items-center justify-between px-6 py-5 text-left group cursor-pointer"
+                className="w-full flex items-center justify-between px-5 py-4 sm:px-6 sm:py-5 text-left group cursor-pointer"
                 style={{ background: "transparent" }}>
                 <span className="text-sm font-medium pr-4 text-white/75 group-hover:text-white transition-colors">{q}</span>
                 <ChevronDown
@@ -63,7 +63,7 @@ export function FAQ() {
               </Accordion.Trigger>
               <Accordion.Content
                 className="overflow-hidden data-[state=open]:animate-[accordionDown_0.25s_ease] data-[state=closed]:animate-[accordionUp_0.25s_ease]">
-                <div className="px-6 pb-5">
+                <div className="px-5 pb-4 sm:px-6 sm:pb-5">
                   <p className="text-sm leading-relaxed" style={{ color: "rgba(245,240,232,0.43)" }}>{a}</p>
                 </div>
               </Accordion.Content>

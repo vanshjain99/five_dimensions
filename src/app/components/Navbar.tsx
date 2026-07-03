@@ -23,13 +23,13 @@ export function Navbar() {
         borderBottom: scrolled ? "1px solid rgba(201,168,76,0.1)" : "none",
       }}
     >
-      <div className="max-w-[1680px] mx-auto px-6 lg:px-12 2xl:px-20 flex items-center justify-between" style={{ height: "clamp(5.25rem,7.5vw,7.5rem)" }}>
-        <a href="#hero" className="flex items-center gap-3.5 group">
-          <div className="w-12 h-12 rounded-lg flex items-center justify-center transition-all duration-300 group-hover:bg-[#C9A84C]/10"
+      <div className="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-20 flex items-center justify-between" style={{ height: "clamp(4.5rem,7.5vw,7.5rem)" }}>
+        <a href="#hero" className="flex items-center gap-2.5 sm:gap-3.5 group min-w-0">
+          <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:bg-[#C9A84C]/10"
             style={{ border: `1.5px solid ${GOLD}` }}>
-            <span className="text-[#C9A84C] text-base font-bold" style={{ fontFamily: "'Fraunces', serif" }}>5D</span>
+            <span className="text-[#C9A84C] text-xs sm:text-base font-bold" style={{ fontFamily: "'Fraunces', serif" }}>5D</span>
           </div>
-          <span className="text-2xl font-medium tracking-wide" style={{ fontFamily: "'Fraunces', serif" }}>
+          <span className="text-base sm:text-2xl font-medium tracking-wide truncate" style={{ fontFamily: "'Fraunces', serif" }}>
             5 Dimensions
           </span>
         </a>
@@ -49,26 +49,27 @@ export function Navbar() {
           </a>
         </div>
 
-        <button className="md:hidden" onClick={() => setNavOpen(!navOpen)}
+        <button className="md:hidden flex-shrink-0 p-1 -mr-1" onClick={() => setNavOpen(!navOpen)}
           style={{ color: "rgba(245,240,232,0.7)" }}>
-          {navOpen ? <X size={26} /> : <Menu size={26} />}
+          {navOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {navOpen && (
-        <div className="md:hidden px-6 py-6 flex flex-col gap-5 border-t"
+        <div className="md:hidden px-5 py-5 flex flex-col gap-1 border-t max-h-[calc(100dvh-4.5rem)] overflow-y-auto"
           style={{ background: "rgba(5,12,26,0.97)", borderColor: "rgba(201,168,76,0.1)" }}>
           {navItems.map(item => (
             <a key={item} href={`#${item.toLowerCase()}`}
-              className="text-lg tracking-wide"
+              className="text-base tracking-wide py-2.5"
               style={{ color: "rgba(245,240,232,0.65)" }}
               onClick={() => setNavOpen(false)}>
               {item}
             </a>
           ))}
           <a href="#consult"
-            className="inline-flex items-center justify-center py-3.5 rounded-full text-sm font-semibold text-[#050C1A] mt-2"
-            style={{ background: goldGradient }}>
+            className="inline-flex items-center justify-center py-3.5 rounded-full text-sm font-semibold text-[#050C1A] mt-3"
+            style={{ background: goldGradient }}
+            onClick={() => setNavOpen(false)}>
             Book Free Consultation
           </a>
         </div>

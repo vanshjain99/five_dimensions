@@ -41,17 +41,17 @@ export function Process() {
         <div className="space-y-4">
           {steps.map(({ step, title, desc }, i) => (
             <div key={step}
-              className="flex gap-5 lg:gap-8 items-start p-6 rounded-2xl transition-all duration-300 hover:border-[rgba(201,168,76,0.25)]"
+              className="flex gap-3.5 sm:gap-5 lg:gap-8 items-start p-4 sm:p-6 rounded-2xl transition-all duration-300 hover:border-[rgba(201,168,76,0.25)]"
               style={subtleCard}>
-              <div className="flex-shrink-0 w-12 text-right">
-                <span className="text-3xl font-light" style={{ fontFamily: "'Fraunces', serif", color: `rgba(201,168,76,${0.18 + i * 0.08})` }}>
+              <div className="flex-shrink-0 w-8 sm:w-12 text-right">
+                <span className="text-xl sm:text-3xl font-light" style={{ fontFamily: "'Fraunces', serif", color: `rgba(201,168,76,${0.18 + i * 0.08})` }}>
                   {step}
                 </span>
               </div>
               <div className="w-px self-stretch mt-1 flex-shrink-0"
                 style={{ background: "rgba(201,168,76,0.12)" }} />
-              <div className="flex-1">
-                <h3 className="text-lg font-light text-white mb-1.5"
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base sm:text-lg font-light text-white mb-1.5"
                   style={{ fontFamily: "'Fraunces', serif" }}>{title}</h3>
                 <p className="text-sm leading-relaxed" style={{ color: "rgba(245,240,232,0.43)" }}>{desc}</p>
               </div>

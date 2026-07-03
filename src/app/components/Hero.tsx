@@ -48,8 +48,8 @@ export function Hero() {
           style={{ ...p, width: p.size, height: p.size, background: GOLD, opacity: p.opacity }} />
       ))}
 
-      <div className="relative z-10 max-w-[1680px] mx-auto px-6 lg:px-12 2xl:px-20 w-full pt-28 pb-20">
-        <div className="grid lg:grid-cols-[1fr_580px] gap-14 xl:gap-20 items-center">
+      <div className="relative z-10 max-w-[1680px] mx-auto px-5 sm:px-6 lg:px-12 2xl:px-20 w-full pt-24 sm:pt-28 pb-14 sm:pb-20">
+        <div className="grid lg:grid-cols-[1fr_580px] gap-10 lg:gap-14 xl:gap-20 items-center">
 
           {/* Left */}
           <div>
@@ -62,7 +62,7 @@ export function Hero() {
             </div>
 
             <h1 className="font-light leading-[1.08] text-white mb-7"
-              style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2.6rem, 5vw, 4.25rem)" }}>
+              style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2.1rem, 6vw + 0.6rem, 4.25rem)" }}>
               Invest in the<br />
               <em style={{ color: GOLD, fontStyle: "italic" }}>Right Property.</em><br />
               Build Lasting Wealth.
@@ -74,7 +74,7 @@ export function Hero() {
             </p>
 
             {/* Trust points */}
-            <div className="grid grid-cols-2 gap-3 mb-11 max-w-[400px]">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-3 mb-9 sm:mb-11 max-w-[400px]">
               {[
                 { icon: Shield, label: "Verified Projects" },
                 { icon: TrendingUp, label: "High ROI Portfolios" },
@@ -104,15 +104,15 @@ export function Hero() {
             <div className="absolute -inset-6 rounded-3xl"
               style={{ background: "rgba(201,168,76,0.04)", filter: "blur(32px)" }} />
 
-            <div className="relative rounded-2xl p-10 lg:p-12" style={glassCard}>
-              <div className="mb-8">
+            <div className="relative rounded-2xl p-6 sm:p-10 lg:p-12" style={glassCard}>
+              <div className="mb-6 sm:mb-8">
                 <p className="text-xs tracking-[0.2em] uppercase font-semibold mb-2.5"
                   style={{ color: GOLD }}>Complimentary Session</p>
-                <h2 className="text-3xl lg:text-[2.25rem] font-light text-white mb-2 leading-tight"
+                <h2 className="text-2xl sm:text-3xl lg:text-[2.25rem] font-light text-white mb-2 leading-tight"
                   style={{ fontFamily: "'Fraunces', serif" }}>
                   Book Your Free Consultation
                 </h2>
-                <p className="text-base" style={{ color: "rgba(245,240,232,0.35)" }}>
+                <p className="text-sm sm:text-base" style={{ color: "rgba(245,240,232,0.35)" }}>
                   Speak with a senior advisor within 24 hours.
                 </p>
               </div>

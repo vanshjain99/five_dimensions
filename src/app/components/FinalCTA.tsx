@@ -26,15 +26,15 @@ export function FinalCTA() {
           style={{ color: "rgba(245,240,232,0.42)" }}>
           Join over 1,200 investors who have built lasting wealth through the 5 Dimensions approach.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center px-4 sm:px-0">
           <a href="#consult"
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-sm tracking-wide text-[#050C1A] transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,168,76,0.4)] active:scale-[0.98]"
+            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-bold text-sm tracking-wide text-[#050C1A] transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,168,76,0.4)] active:scale-[0.98] w-full sm:w-auto"
             style={{ background: goldGradient }}>
             Book Free Consultation
             <ArrowRight size={15} />
           </a>
           <a href="tel:+911234567890"
-            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-semibold text-white text-sm tracking-wide transition-all duration-300 hover:border-[rgba(201,168,76,0.5)]"
+            className="inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full font-semibold text-white text-sm tracking-wide transition-all duration-300 hover:border-[rgba(201,168,76,0.5)] w-full sm:w-auto"
             style={{ border: "1px solid rgba(245,240,232,0.18)" }}>
             <Phone size={14} />
             Call Us Directly

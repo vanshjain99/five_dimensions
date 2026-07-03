@@ -39,7 +39,7 @@ export function Services() {
         <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5">
           {services.map(({ icon: Icon, title, desc }) => (
             <HoverCard key={title}
-              className="p-7 rounded-2xl transition-all duration-300"
+              className="p-6 sm:p-7 rounded-2xl transition-all duration-300"
               style={subtleCard}
               hoverBg="rgba(201,168,76,0.045)"
               hoverBorder="rgba(201,168,76,0.22)">

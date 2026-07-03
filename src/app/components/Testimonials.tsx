@@ -35,7 +35,7 @@ export function Testimonials() {
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map(({ name, role, text, portfolio }) => (
-            <div key={name} className="p-7 rounded-2xl" style={{
+            <div key={name} className="p-6 sm:p-7 rounded-2xl" style={{
               ...subtleCard,
               backdropFilter: "blur(8px)",
             }}>
