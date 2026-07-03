@@ -1,189 +1,168 @@
-# Five Dimensions — Luxury Real Estate Landing Page
+# Five Dimensions
 
-A premium, conversion-focused luxury real estate landing page built with **React**, **TypeScript**, and **Vite**.
+A modern luxury real estate landing page built with React, TypeScript, Vite, and Tailwind CSS.
 
-This project presents high-end property advisory services through a polished dark theme, premium typography, and a responsive user journey from first impression to consultation inquiry.
-
----
-
-## ✨ Highlights
-
-- Elegant, luxury-themed marketing website
-- Responsive layout optimized for mobile, tablet, and desktop
-- Clear conversion path with consultation form and call-to-action sections
-- Modular React component architecture for easy iteration
-- Built with a modern TypeScript + Vite frontend toolchain
+Five Dimensions is designed as a premium, conversion-focused single-page experience that showcases advisory services and guides visitors toward consultation inquiries.
 
 ---
 
-## 🧭 Overview
+## Overview
 
-Five Dimensions is a single-page marketing experience inspired by a Figma concept for luxury real estate services.
+This project presents a polished dark-themed real estate website with strong visual hierarchy, premium styling, and clear content flow.
 
-The page is organized into focused sections that communicate trust, expertise, and premium positioning:
+Core goals of the landing page:
 
-- Hero section with value proposition and consultation form
-- Trust indicators and benefits
-- Portfolio/services showcase
-- Process and differentiation content
-- Testimonials and FAQ
-- Final CTA and footer
-
-The visual direction emphasizes a **dark luxury palette** with **gold accents**, high contrast, and structured spacing.
+- Communicate trust and expertise quickly
+- Present services and differentiators clearly
+- Drive users to submit a consultation form
+- Deliver a responsive experience across devices
 
 ---
 
-## 🛠 Tech Stack
+## Features
+
+- Luxury-focused dark UI with gold-accent visual language
+- Responsive design for mobile, tablet, and desktop
+- Structured one-page section flow for conversion
+- Modular React component architecture
+- Modern frontend setup for fast development and builds
+
+---
+
+## Tech Stack
 
 - **React**
 - **TypeScript**
 - **Vite**
 - **Tailwind CSS**
-- **Lucide React** (icons)
+- **Lucide React**
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```text
 .
 ├── src/
 │   ├── app/
-│   │   ├── App.tsx                  # Main page composition
-│   │   └── components/              # Reusable page sections/components
-│   ├── main.tsx                     # Application bootstrap
-│   └── styles/                      # Global/project styles
-├── public/                          # Static assets
-├── package.json                     # Scripts and dependencies
-├── tsconfig.json                    # TypeScript configuration
+│   │   ├── App.tsx
+│   │   └── components/
+│   ├── main.tsx
+│   └── styles/
+├── guidelines/
+├── index.html
+├── package.json
+├── postcss.config.mjs
+├── vite.config.ts
+├── default_shadcn_theme.css
+├── ATTRIBUTIONS.md
+├── LICENSE
 └── README.md
 ```
 
-> Exact structure may evolve as the project grows.
-
 ---
 
-## ✅ Prerequisites
+## Getting Started
 
-Install the following locally:
+### Prerequisites
 
-- **Node.js** (LTS recommended)
-- **npm**
+- Node.js (LTS recommended)
+- npm
 
-Check versions:
+Check installed versions:
 
 ```bash
 node -v
 npm -v
 ```
 
----
-
-## 🚀 Getting Started
-
-### 1) Clone the repository
+### Installation
 
 ```bash
 git clone https://github.com/vanshjain99/five_dimensions.git
 cd five_dimensions
-```
-
-### 2) Install dependencies
-
-```bash
 npm install
 ```
 
-### 3) Run development server
+### Run Development Server
 
 ```bash
 npm run dev
 ```
 
-### 4) Open in browser
-
-Use the local URL shown in your terminal (commonly `http://localhost:5173`).
+Then open the local URL shown in your terminal (typically `http://localhost:5173`).
 
 ---
 
-## 📜 Scripts
+## Available Scripts
 
-Common scripts in this project:
-
-- `npm run dev` — start development server
-- `npm run build` — build for production
-- `npm run preview` — preview production build locally
-
-If additional scripts (lint/test/format) are added, they will appear in `package.json`.
+- `npm run dev` — Start development server
+- `npm run build` — Build optimized production output
+- `npm run preview` — Preview production build locally
 
 ---
 
-## 🧪 Build for Production
+## Production Build
 
 ```bash
 npm run build
-```
-
-Vite outputs optimized assets to the `dist/` directory.
-
-To preview locally:
-
-```bash
 npm run preview
 ```
 
----
-
-## 🌐 Deployment
-
-This project can be deployed to any static hosting provider, including:
-
-- **Vercel**
-- **Netlify**
-- **GitHub Pages**
-
-Typical flow:
-
-1. Run `npm run build`
-2. Deploy the generated `dist/` folder
+The production assets are generated in the `dist/` directory.
 
 ---
 
-## 🎨 Design Reference
+## Deployment
 
-Figma source:
+You can deploy this project to any static hosting provider, such as:
 
+- Vercel
+- Netlify
+- GitHub Pages
+
+Typical deployment steps:
+
+1. Build the app with `npm run build`
+2. Deploy the `dist/` folder
+
+---
+
+## Design Source
+
+Figma reference:
 https://www.figma.com/design/Rh0IfvK2wYqCvMD5KqrPXu/Luxury-Real-Estate-Landing-Page
 
 ---
 
-## 🔭 Roadmap Ideas
+## Roadmap
 
-Potential next enhancements:
+Potential improvements:
 
-- Backend integration for consultation form submission
-- Form validation + success/error states
-- Analytics/event tracking
-- SEO improvements (meta tags, OG tags, sitemap)
-- CMS-backed content for testimonials/properties
-- Accessibility audit and refinements
+- Consultation form backend integration
+- Client/server-side form validation
+- Submission success and error handling states
+- SEO enhancements (metadata, OG tags, sitemap)
+- Analytics and conversion event tracking
+- Accessibility review and refinements
+- CMS-based content management for testimonials/services
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions and improvements are welcome.
+Contributions are welcome.
 
-1. Fork the repository
-2. Create a feature branch
+1. Fork this repository
+2. Create a branch:
    ```bash
    git checkout -b feature/your-feature
    ```
-3. Commit your changes
+3. Commit changes:
    ```bash
-   git commit -m "feat: describe your change"
+   git commit -m "feat: add your change"
    ```
-4. Push your branch
+4. Push branch:
    ```bash
    git push origin feature/your-feature
    ```
@@ -191,17 +170,15 @@ Contributions and improvements are welcome.
 
 ---
 
-## 🐛 Issues
+## Issues
 
-Found a bug or have a feature request?
-
-Open an issue here:
+If you find a bug or want to request a feature, open an issue:
 https://github.com/vanshjain99/five_dimensions/issues
 
 ---
 
-## 📄 License
+## License
 
-No license is currently specified.
+This repository includes a `LICENSE` file.
 
-If you plan to open-source this project, consider adding a `LICENSE` file (e.g., MIT).
+See `LICENSE` for usage terms.
