@@ -1,0 +1,84 @@
+import { ArrowRight, Phone } from 'lucide-react';
+import { COLORS, FONT_SERIF } from '../utils/constants';
+import AnimatedSection from '../components/ui/AnimatedSection';
+import Button from '../components/ui/Button';
+
+/**
+ * Full-width final CTA banner on a navy-to-navyLight gradient.
+ * Two action buttons: book consultation (gold) and phone call (outline-white).
+ * Decorative blurred gold orbs create depth without distraction.
+ */
+export default function CtaSection() {
+  return (
+    <section className="py-20 lg:py-28 bg-background">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <AnimatedSection>
+          <div
+            className="rounded-3xl p-10 lg:p-16 text-center relative overflow-hidden"
+            style={{
+              background: `linear-gradient(135deg, ${COLORS.navy} 0%, ${COLORS.navyLight} 100%)`,
+            }}
+          >
+            {/* Decorative gold orbs — purely visual, pointer-events disabled */}
+            <div
+              className="absolute top-0 right-0 w-72 h-72 rounded-full pointer-events-none"
+              style={{
+                background: `${COLORS.gold}14`,
+                transform: 'translate(40%, -40%)',
+              }}
+            />
+            <div
+              className="absolute bottom-0 left-0 w-52 h-52 rounded-full pointer-events-none"
+              style={{
+                background: `${COLORS.gold}0E`,
+                transform: 'translate(-40%, 40%)',
+              }}
+            />
+
+            {/* Content */}
+            <div className="relative z-10">
+              <span
+                className="text-xs font-semibold tracking-widest uppercase"
+                style={{ color: COLORS.gold }}
+              >
+                Take the First Step
+              </span>
+              <h2
+                className="text-3xl lg:text-5xl font-bold text-white mt-4 mb-5 leading-tight"
+                style={{ fontFamily: FONT_SERIF }}
+              >
+                Your Wealth Strategy Starts With a Conversation
+              </h2>
+              <p
+                className="text-base lg:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
+                style={{ color: 'rgba(255,255,255,0.6)' }}
+              >
+                Book a complimentary 30-minute consultation with a senior 5 Dimensions advisor. No
+                sales pitch — just clarity on how real estate fits your financial future.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  variant="gold"
+                  size="lg"
+                  href="#consultation"
+                  icon={<ArrowRight size={17} />}
+                >
+                  Book Free Consultation
+                </Button>
+                <Button
+                  variant="outline-white"
+                  size="lg"
+                  href="tel:+912234567890"
+                  icon={<Phone size={15} />}
+                >
+                  +91 22 3456 7890
+                </Button>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+  );
+}

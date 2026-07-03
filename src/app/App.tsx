@@ -1,30 +1,49 @@
-import { NAVY } from "./components/constants";
-import { Navbar } from "./components/Navbar";
-import { Hero } from "./components/Hero";
-import { TrustBar } from "./components/TrustBar";
-import { Portfolio } from "./components/Portfolio";
-import { Services } from "./components/Services";
-import { Process } from "./components/Process";
-import { Testimonials } from "./components/Testimonials";
-import { FAQ } from "./components/FAQ";
-import { FinalCTA } from "./components/FinalCTA";
-import { Footer } from "./components/Footer";
+/**
+ * App.tsx — root composition component.
+ *
+ * Responsibilities:
+ * - Renders the Navbar and Footer layout shells.
+ * - Composes all page sections in order.
+ * - Contains zero business logic, state, or styling — those live in their
+ *   respective section and component files.
+ *
+ * Section order:
+ *   Hero → Stats → Leadership → Opportunities → Why Choose →
+ *   Process → Testimonials → Insights → FAQ → CTA
+ */
+
+import Navbar from '../components/layout/Navbar';
+import Footer from '../components/layout/Footer';
+
+import HeroSection from '../sections/HeroSection';
+import StatsSection from '../sections/StatsSection';
+import LeadershipSection from '../sections/LeadershipSection';
+import OpportunitiesSection from '../sections/OpportunitiesSection';
+import WhyChooseSection from '../sections/WhyChooseSection';
+import ProcessSection from '../sections/ProcessSection';
+import TestimonialsSection from '../sections/TestimonialsSection';
+import InsightsSection from '../sections/InsightsSection';
+import FaqSection from '../sections/FaqSection';
+import CtaSection from '../sections/CtaSection';
 
 export default function App() {
   return (
-    <div
-      className="min-h-screen scroll-smooth overflow-x-hidden"
-      style={{ background: NAVY, color: "#F5F0E8", fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-    >
+    <div className="min-h-screen bg-background overflow-x-hidden" style={{ fontFamily: "'Inter', sans-serif" }}>
       <Navbar />
-      <Hero />
-      <TrustBar />
-      <Portfolio />
-      <Services />
-      <Process />
-      <Testimonials />
-      <FAQ />
-      <FinalCTA />
+
+      <main>
+        <HeroSection />
+        <StatsSection />
+        <LeadershipSection />
+        <OpportunitiesSection />
+        <WhyChooseSection />
+        <ProcessSection />
+        <TestimonialsSection />
+        <InsightsSection />
+        <FaqSection />
+        <CtaSection />
+      </main>
+
       <Footer />
     </div>
   );
