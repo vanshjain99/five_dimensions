@@ -4,11 +4,11 @@ import ConsultationForm from '../components/forms/ConsultationForm';
 
 const TRUST_BADGES = [
   { icon: Shield, text: 'RERA Compliant' },
-  { icon: Award, text: '15+ Years' },
-  { icon: Users, text: '1,200+ Clients' },
+  { icon: Award, text: '10+ Years' },
+  { icon: Users, text: '500+ Clients' },
 ];
 
-const TRUSTED_BRANDS = ['HDFC', 'Godrej', 'L&T', 'Infosys'];
+const TRUSTED_BRANDS = ['Experion', 'Godrej', 'L&T', 'Gaurs', 'ATS', 'Max', 'ACE'];
 
 /**
  * Full-viewport hero section.
@@ -88,7 +88,7 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-base lg:text-lg leading-relaxed mb-8 max-w-md" style={{ color: `${COLORS.navy}B3` }}>
-              Mumbai's foremost real estate investment consultancy — engineering bespoke wealth
+              Delhi NCR's foremost real estate investment consultancy — engineering bespoke wealth
               strategies for discerning investors who expect more than a property listing.
             </p>
 

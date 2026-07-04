@@ -165,7 +165,7 @@ export default function ConsultationForm() {
       </button>
 
       <p className="text-center text-xs" style={{ color: `${COLORS.navy}44` }}>
-        No commitment. No spam. Your privacy is protected.
+        Your privacy is protected.
       </p>
     </form>
   );
