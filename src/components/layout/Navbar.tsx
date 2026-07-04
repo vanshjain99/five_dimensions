@@ -36,18 +36,18 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Brand mark */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-4">
             <div
-              className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
+              className="w-12 h-12 lg:w-12 lg:h-12 rounded-full flex items-center justify-center flex-shrink-0"
               style={{ background: `linear-gradient(135deg, ${COLORS.gold}, ${COLORS.goldDark})` }}
             >
               <span className="text-white font-bold text-xs tracking-tight">5D</span>
             </div>
             <span
-              className="font-bold text-lg tracking-wide transition-colors duration-200"
-              style={{ fontFamily: FONT_SERIF, color: isScrolled ? COLORS.navy : 'white' }}
+              className="font-bold text-xl lg:text-3xl tracking-wide transition-colors duration-200"
+              style={{ fontFamily: FONT_SERIF, color: isScrolled ? COLORS.navy : COLORS.navy }}
             >
-              5 Dimensions
+              Five Dimensions
             </span>
           </div>
 

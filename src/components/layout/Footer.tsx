@@ -9,10 +9,10 @@ import {
 const CONTACT_ITEMS = [
   {
     icon: MapPin,
-    text: 'Level 32, One World Centre, Prabhadevi, Mumbai 400 025',
+    text: 'Bhutani Alphathum, A-707, Sector 90, Noida, Uttar Pradesh 201305',
   },
-  { icon: Phone, text: '+91 22 3456 7890' },
-  { icon: Mail, text: 'invest@5dimensions.in' },
+  { icon: Phone, text: '+91 9711193630' },
+  { icon: Mail, text: 'sachin.jaiparas@gmail.com' },
 ];
 
 /** Column of footer links with a shared label style */
@@ -62,7 +62,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.38)' }}>
-              Mumbai's premier real estate investment consultancy. Engineered for discerning
+              Delhi NCR's premier real estate investment consultancy. Engineered for discerning
               investors since 2009.
             </p>
 

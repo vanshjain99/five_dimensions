@@ -69,10 +69,10 @@ export default function CtaSection() {
                 <Button
                   variant="outline-white"
                   size="lg"
-                  href="tel:+912234567890"
+                  href="tel:+919711193630"
                   icon={<Phone size={15} />}
                 >
-                  +91 22 3456 7890
+                  +91 9711193630
                 </Button>
               </div>
             </div>
