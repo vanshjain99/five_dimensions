@@ -6,9 +6,9 @@ export const LEADERS: Leader[] = [
   {
     name: 'Sachin Jain',
     designation: 'Co-Founder & CEO',
-    bio: 'Sachin Jain is the Founder & CEO of 5 Dimensions, with over 10 years of experience in the real estate industry. A B.Tech graduate, he combines technical expertise with market knowledge to provide trusted real estate solutions and build lasting client relationships.',
+    bio: 'Sachin Jain is the Co-Founder & CEO of 5 Dimensions, with over 10 years of experience in the real estate industry. A B.Tech graduate, he combines technical expertise with market knowledge to provide trusted real estate solutions and build lasting client relationships.',
     image: sachinImg,
-    alt: 'Sachin Jain — Founder and CEO of 5 Dimensions',
+    alt: 'Sachin Jain — Co-Founder and CEO of 5 Dimensions',
   },
   {
     name: 'Praveen Kushwah',
