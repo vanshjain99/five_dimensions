@@ -6,7 +6,7 @@ import { FormField, StyledInput, StyledSelect } from './FormField';
 import PropertyTypeSelector from './PropertyTypeSelector';
 import CountryCodeSelect from './CountryCodeSelect';
 import FormSuccess from './FormSuccess';
-import { supabase } from '../../lib/supabaseClient';
+
 
 const INITIAL_FORM_STATE: ConsultationFormData = {
   name: '',
@@ -38,33 +38,35 @@ export default function ConsultationForm() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setErrorMessage(null);
+  e.preventDefault();
+  setErrorMessage(null);
 
-    // Guard: name, phone, and at least one property type are required
-    if (!formData.name || !formData.phone || formData.propertyTypes.length === 0) return;
+  // Guard: name, phone, and at least one property type are required
+  if (!formData.name || !formData.phone || formData.propertyTypes.length === 0) return;
 
-    setIsSubmitting(true);
+  setIsSubmitting(true);
 
-    const { error } = await supabase.from('consultations').insert({
-      name: formData.name,
-      phone: formData.phone,
-      country_code: formData.countryCode,
-      email: formData.email,
-      budget: formData.budget,
-      interested: formData.propertyTypes,
-    });
+  const { supabase } = await import('../../lib/supabaseClient');
 
-    setIsSubmitting(false);
+  const { error } = await supabase.from('consultations').insert({
+    name: formData.name,
+    phone: formData.phone,
+    country_code: formData.countryCode,
+    email: formData.email,
+    budget: formData.budget,
+    interested: formData.propertyTypes,
+  });
 
-    if (error) {
-      console.error('Error saving consultation:', error);
-      setErrorMessage("Something went wrong submitting your request. Please try again.");
-      return;
-    }
+  setIsSubmitting(false);
 
-    setSubmitted(true);
-  };
+  if (error) {
+    console.error('Error saving consultation:', error);
+    setErrorMessage("Something went wrong submitting your request. Please try again.");
+    return;
+  }
+
+  setSubmitted(true);
+};
 
   if (submitted) {
     // Extract first name for the personalised thank-you message

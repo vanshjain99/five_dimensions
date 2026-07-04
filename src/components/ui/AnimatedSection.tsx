@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AnimatedSectionProps {
   children: React.ReactNode;
@@ -11,8 +11,9 @@ interface AnimatedSectionProps {
 }
 
 /**
- * Wraps children in a motion.div that fades + rises into view once.
- * Used throughout to keep whileInView boilerplate out of section components.
+ * Wraps children in a div that fades + rises into view once, using
+ * IntersectionObserver + CSS transitions instead of framer-motion.
+ * Used throughout to keep scroll-reveal boilerplate out of section components.
  */
 export default function AnimatedSection({
   children,
@@ -21,16 +22,39 @@ export default function AnimatedSection({
   className,
   style,
 }: AnimatedSectionProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: yOffset }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, ease: 'easeOut', delay }}
+    <div
+      ref={ref}
       className={className}
-      style={style}
+      style={{
+        ...style,
+        opacity: visible ? 1 : 0,
+        transform: visible ? 'translateY(0)' : `translateY(${yOffset}px)`,
+        transition: `opacity 0.5s ease-out ${delay}s, transform 0.5s ease-out ${delay}s`,
+      }}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

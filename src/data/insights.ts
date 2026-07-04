@@ -8,7 +8,7 @@ export const INSIGHTS: Insight[] = [
       'Grade-A office spaces in BKC and Lower Parel are seeing unprecedented demand from global MNCs establishing India headquarters. Here\'s what it means for investors.',
     date: 'December 2024',
     readTime: '6 min',
-    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=500&h=300&fit=crop&auto=format',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=480&h=290&fit=crop&auto=format&q=70',
     alt: 'Modern commercial office tower in Mumbai',
   },
   {
@@ -18,7 +18,7 @@ export const INSIGHTS: Insight[] = [
       'With equities volatile and fixed income compressed, HNIs are turning to luxury residential real estate as a reliable store of wealth and yield generator.',
     date: 'November 2024',
     readTime: '8 min',
-    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=500&h=300&fit=crop&auto=format',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=480&h=290&fit=crop&auto=format&q=70',
     alt: 'Luxury sea-view penthouse interior',
   },
   {
@@ -28,7 +28,7 @@ export const INSIGHTS: Insight[] = [
       'NAINA, the new airport, and the trans-harbor link are converging to create a once-in-a-generation land appreciation story. Our analysts break down the micro-markets.',
     date: 'October 2024',
     readTime: '10 min',
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&h=300&fit=crop&auto=format',
+    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=480&h=290&fit=crop&auto=format&q=70',
     alt: 'Open land plots in Navi Mumbai with city skyline in background',
   },
 ];

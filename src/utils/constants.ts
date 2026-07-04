@@ -18,9 +18,9 @@ export const COLORS = {
 /** Inline serif font — used where Tailwind font utilities don't apply (e.g. style prop) */
 export const FONT_SERIF = "'Playfair Display', serif";
 
-/** Unsplash hero background image */
+/** Unsplash hero background image — sized down + compressed for faster LCP on mobile */
 export const HERO_IMAGE_URL =
-  'https://images.unsplash.com/photo-1523374228107-6e44bd2b524e?w=1920&h=1080&fit=crop&auto=format';
+  'https://images.unsplash.com/photo-1523374228107-6e44bd2b524e?w=1200&h=675&fit=crop&auto=format&q=60';
 
 /** Investment property types available for multi-select in the consultation form */
 export const PROPERTY_TYPES = ['Commercial', 'Residential', 'Plots', 'Luxury'] as const;

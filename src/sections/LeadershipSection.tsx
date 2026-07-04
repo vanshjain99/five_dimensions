@@ -22,6 +22,8 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
         <img
           src={leader.image}
           alt={leader.alt}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover rounded-full"
           style={{ background: '#EDE8DF' }}
         />

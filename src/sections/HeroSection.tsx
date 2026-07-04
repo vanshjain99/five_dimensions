@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import { Shield, Award, Users } from 'lucide-react';
 import { COLORS, FONT_SERIF, HERO_IMAGE_URL } from '../utils/constants';
 import ConsultationForm from '../components/forms/ConsultationForm';
@@ -29,6 +28,9 @@ export default function HeroSection() {
           alt="Aerial view of luxury city skyline at night"
           className="w-full h-full object-cover"
           style={{ opacity: 0.55 }}
+          fetchPriority="high"
+          loading="eager"
+          decoding="async"
         />
         {/* Ivory-to-navy horizontal gradient — heavier on left for text legibility */}
         <div
@@ -52,10 +54,10 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24 pb-16 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Value proposition */}
-          <motion.div
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
+          <div
+            style={{
+              animation: 'hero-fade-up 0.7s ease-out both',
+            }}
           >
             {/* Category overline badge */}
             <div
@@ -121,13 +123,13 @@ export default function HeroSection() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Consultation form card */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: 'easeOut', delay: 0.15 }}
+          <div
+            style={{
+              animation: 'hero-fade-up 0.7s ease-out 0.15s both',
+            }}
           >
             <div
               className="rounded-2xl overflow-hidden border"
@@ -157,9 +159,16 @@ export default function HeroSection() {
 
               <ConsultationForm />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes hero-fade-up {
+          from { opacity: 0; transform: translateY(28px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </section>
   );
 }
