@@ -1,6 +1,6 @@
 import type { Leader } from '../types';
-import sachinImg from '../assets/sachin_img.jpeg';
-import praveenImg from '../assets/praveen_img.jpeg';
+import sachinImg from '../assets/sachin_img.jpg';
+import praveenImg from '../assets/praveen_img.jpg';
 
 export const LEADERS: Leader[] = [
   {
