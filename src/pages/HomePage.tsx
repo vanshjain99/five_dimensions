@@ -8,6 +8,7 @@ import TestimonialsSection from '../sections/TestimonialsSection';
 import InsightsSection from '../sections/InsightsSection';
 import FaqSection from '../sections/FaqSection';
 import CtaSection from '../sections/CtaSection';
+import BuilderPartnersSection from '../sections/BuilderPartnersSection';
 
 /** Homepage — composes all marketing sections in sequence. Zero logic here. */
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
       <HeroSection />
       <StatsSection />
       <LeadershipSection />
+      <BuilderPartnersSection />
       <OpportunitiesSection />
       <WhyChooseSection />
       <ProcessSection />

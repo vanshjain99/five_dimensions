@@ -1,38 +1,44 @@
 import { ArrowRight, MapPin } from 'lucide-react';
+import { Link } from 'react-router';
 import { COLORS, FONT_SERIF } from '../utils/constants';
-import { OPPORTUNITIES } from '../data/opportunities';
+import { FEATURED_OPPORTUNITIES } from '../data/opportunities';
 import SectionHeader from '../components/ui/SectionHeader';
 import AnimatedSection from '../components/ui/AnimatedSection';
-import Button from '../components/ui/Button';
 import type { Opportunity } from '../types';
 
-/** Individual property card with image, type badge, pricing, and a detail CTA */
-function OpportunityCard({ opportunity, index }: { opportunity: Opportunity; index: number }) {
-  const { type, title, location, price, returns, tag, image, alt } = opportunity;
+/** Badge colour map for each property type */
+const TYPE_COLORS: Record<Opportunity['type'], string> = {
+  Commercial: '#2563EB',
+  Luxury: COLORS.gold,
+  Plots: '#059669',
+  Residential: '#7C3AED',
+};
+
+/** Compact property card used in the homepage featured section */
+function FeaturedCard({ opportunity, index }: { opportunity: Opportunity; index: number }) {
+  const { id, type, title, location, price, returns, tag, image, alt } = opportunity;
 
   return (
     <AnimatedSection
       delay={index * 0.09}
-      className="group rounded-2xl overflow-hidden border cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+      className="group rounded-2xl overflow-hidden border cursor-pointer transition-all duration-300 hover:-translate-y-1.5 flex flex-col"
       style={{
         background: 'white',
         borderColor: COLORS.border,
         boxShadow: '0 2px 12px rgba(26,39,68,0.06)',
       }}
     >
-      {/* Property image with type and demand badges */}
-      <div className="relative h-44 overflow-hidden" style={{ background: '#E8E4DC' }}>
+      {/* Property image */}
+      <div className="relative h-44 overflow-hidden flex-shrink-0" style={{ background: '#E8E4DC' }}>
         <img
           src={image}
           alt={alt}
-          loading="lazy"
-          decoding="async"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <div className="absolute top-3 left-3">
           <span
             className="text-white text-xs font-semibold px-2.5 py-1 rounded-full"
-            style={{ background: COLORS.gold }}
+            style={{ background: TYPE_COLORS[type] }}
           >
             {type}
           </span>
@@ -52,18 +58,21 @@ function OpportunityCard({ opportunity, index }: { opportunity: Opportunity; ind
       </div>
 
       {/* Card body */}
-      <div className="p-4">
+      <div className="p-4 flex flex-col flex-1">
         <h3
           className="text-base font-bold leading-snug mb-1"
           style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
         >
           {title}
         </h3>
-        <div className="flex items-center gap-1 text-xs mb-3" style={{ color: `${COLORS.navy}66` }}>
+        <div
+          className="flex items-center gap-1 text-xs mb-3"
+          style={{ color: `${COLORS.navy}66` }}
+        >
           <MapPin size={11} />
           <span>{location}</span>
         </div>
-        <div className="flex items-end justify-between">
+        <div className="flex items-end justify-between mt-auto">
           <div
             className="text-xl font-bold"
             style={{ fontFamily: FONT_SERIF, color: COLORS.gold }}
@@ -79,22 +88,31 @@ function OpportunityCard({ opportunity, index }: { opportunity: Opportunity; ind
             </div>
           </div>
         </div>
-        <Button
-          variant="outline-gold"
-          size="sm"
-          fullWidth
-          className="mt-3"
+        {/* View Details links to detail page */}
+        <Link
+          to={`/opportunities/${id}`}
+          className="mt-3 w-full text-xs font-semibold py-2.5 rounded-xl text-center block transition-all duration-200"
+          style={{
+            border: `1.5px solid ${COLORS.gold}55`,
+            color: COLORS.gold,
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.background = `${COLORS.gold}0D`)
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.background = 'transparent')
+          }
         >
           View Details
-        </Button>
+        </Link>
       </div>
     </AnimatedSection>
   );
 }
 
 /**
- * Featured investment opportunities grid — four handpicked property cards.
- * Below the grid, a navy CTA button links to the full portfolio.
+ * Homepage featured opportunities section — shows the first 4 properties.
+ * "Explore All Opportunities" navigates to /opportunities via React Router Link.
  */
 export default function OpportunitiesSection() {
   return (
@@ -107,15 +125,23 @@ export default function OpportunitiesSection() {
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {OPPORTUNITIES.map((opportunity, index) => (
-            <OpportunityCard key={opportunity.title} opportunity={opportunity} index={index} />
+          {FEATURED_OPPORTUNITIES.map((opportunity, index) => (
+            <FeaturedCard key={opportunity.id} opportunity={opportunity} index={index} />
           ))}
         </div>
 
+        {/* Navigates to the full /opportunities listing page */}
         <div className="text-center mt-10">
-          <Button variant="navy" icon={<ArrowRight size={15} />}>
+          <Link
+            to="/opportunities"
+            className="inline-flex items-center gap-2 font-semibold px-8 py-3.5 rounded-full text-white text-sm transition-all hover:-translate-y-px"
+            style={{ background: COLORS.navy }}
+            onMouseEnter={(e) => (e.currentTarget.style.background = COLORS.navyLight)}
+            onMouseLeave={(e) => (e.currentTarget.style.background = COLORS.navy)}
+          >
             Explore All Opportunities
-          </Button>
+            <ArrowRight size={15} />
+          </Link>
         </div>
       </div>
     </section>

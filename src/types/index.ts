@@ -98,3 +98,12 @@ export interface ConsultationFormData {
   budget: string;
   propertyTypes: string[];
 }
+
+/** Active filter state for the opportunities page */
+export interface OpportunityFilters {
+  type: string;
+  city: string;
+  budget: string;
+  status: string;
+  sortBy: string;
+}
