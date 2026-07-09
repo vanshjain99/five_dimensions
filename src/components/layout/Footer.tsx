@@ -116,8 +116,7 @@ export default function Footer() {
           style={{ borderColor: 'rgba(255,255,255,0.07)' }}
         >
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.22)' }}>
-            © 2025 5 Dimensions Real Estate Advisory Pvt. Ltd. All rights reserved. RERA Reg:
-            P51700012345
+            © 2026 5 Dimensions Real Estate Advisory Pvt. Ltd. All rights reserved.
           </p>
           <div className="flex gap-5">
             {['Privacy Policy', 'Terms of Use', 'Disclaimer'].map((label) => (
