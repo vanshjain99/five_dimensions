@@ -42,16 +42,7 @@ export interface Testimonial {
   initials: string;
 }
 
-/** A market insight article card */
-export interface Insight {
-  category: string;
-  title: string;
-  excerpt: string;
-  date: string;
-  readTime: string;
-  image: string;
-  alt: string;
-}
+
 
 /** A FAQ accordion item */
 export interface FAQ {
@@ -106,4 +97,31 @@ export interface OpportunityFilters {
   budget: string;
   status: string;
   sortBy: string;
+}
+
+/** A single block of rich content inside an insight article */
+export interface InsightContentBlock {
+  type: 'heading' | 'paragraph' | 'bullets' | 'quote' | 'image';
+  text?: string;
+  items?: string[];
+  src?: string;
+  alt?: string;
+}
+
+/** A market insight article card */
+export interface Insight {
+  id: string;
+  category: string;
+  title: string;
+  excerpt: string;
+  date: string;
+  /** ISO date string used for sorting — the human-readable `date` above is derived from this */
+  publishedAt: string;
+  readTime: string;
+  image: string;
+  alt: string;
+  content: InsightContentBlock[];
+  author: string;
+  sourceUrl?: string;
+  views?: number;
 }

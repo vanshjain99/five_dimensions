@@ -3,6 +3,7 @@ import RootLayout from '../components/layout/RootLayout';
 import HomePage from '../pages/HomePage';
 import OpportunitiesPage from '../pages/OpportunitiesPage';
 import OpportunityDetailPage from '../pages/OpportunityDetailPage';
+import InsightsPage from '../pages/InsightsPage';
 import NotFoundPage from '../pages/NotFoundPage';
 
 /**
@@ -18,6 +19,7 @@ export const router = createBrowserRouter([
       { index: true, Component: HomePage },
       { path: 'opportunities', Component: OpportunitiesPage },
       { path: 'opportunities/:id', Component: OpportunityDetailPage },
+      { path: 'insights', Component: InsightsPage },
       { path: '*', Component: NotFoundPage },
     ],
   },
