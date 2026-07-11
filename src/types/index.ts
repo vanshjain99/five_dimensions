@@ -7,16 +7,7 @@ export interface Stat {
 }
 
 /** A featured investment property card */
-export interface Opportunity {
-  type: 'Commercial' | 'Luxury' | 'Plots' | 'Residential';
-  title: string;
-  location: string;
-  price: string;
-  returns: string;
-  tag: string;
-  image: string;
-  alt: string;
-}
+
 
 /** A "Why Choose Us" feature card */
 export interface Reason {
@@ -124,4 +115,22 @@ export interface Insight {
   author: string;
   sourceUrl?: string;
   views?: number;
+}
+
+/** A featured investment property card */
+export interface Opportunity {
+  id: string;
+  type: string;
+  title: string;
+  location: string;
+  city: string;
+  price: string;
+  priceValue: number;
+  returns: string;
+  roiValue: number;
+  tag: string;
+  status: string;
+  description: string;
+  image: string;
+  alt: string;
 }

@@ -11,15 +11,16 @@ interface OpportunityCardProps {
 }
 
 /** Badge colour map by property type */
-const TYPE_COLORS: Record<Opportunity['type'], string> = {
+const TYPE_COLORS: Record<string, string> = {
   Commercial: '#2563EB',
   Luxury: COLORS.gold,
   Plots: '#059669',
   Residential: '#7C3AED',
+  Farmland: '#B45309',
 };
 
 /** Status badge styles */
-const STATUS_STYLES: Record<Opportunity['status'], { bg: string; color: string }> = {
+const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
   'Ready Possession': { bg: '#D1FAE5', color: '#065F46' },
   'Under Construction': { bg: '#FEF3C7', color: '#92400E' },
   'New Launch': { bg: '#EDE9FE', color: '#5B21B6' },
@@ -48,8 +49,8 @@ export default function OpportunityCard({
     alt,
   } = opportunity;
 
-  const statusStyle = STATUS_STYLES[status];
-  const typeColor = TYPE_COLORS[type];
+  const statusStyle = STATUS_STYLES[status] ?? { bg: '#E5E7EB', color: '#374151' };
+  const typeColor = TYPE_COLORS[type] ?? COLORS.navy;
 
   return (
     <motion.article

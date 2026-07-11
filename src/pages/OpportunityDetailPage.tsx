@@ -1,18 +1,12 @@
+import { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router';
 import { motion } from 'motion/react';
 import {
-  ChevronRight,
-  MapPin,
-  TrendingUp,
-  Shield,
-  Clock,
-  ArrowLeft,
-  CheckCircle2,
-  Building2,
-  Phone,
+  ChevronRight, MapPin, TrendingUp, Shield, Clock, ArrowLeft, CheckCircle2, Building2, Phone, Loader2,
 } from 'lucide-react';
 import { COLORS, FONT_SERIF } from '../utils/constants';
-import { OPPORTUNITIES } from '../data/opportunities';
+import { fetchOpportunityById, fetchOpportunities } from '../lib/opportunitiesApi';
+import type { Opportunity } from '../types';
 import ConsultationForm from '../components/forms/ConsultationForm';
 import OpportunityCard from '../components/opportunities/OpportunityCard';
 
@@ -22,6 +16,7 @@ const TYPE_COLORS: Record<string, string> = {
   Luxury: COLORS.gold,
   Plots: '#059669',
   Residential: '#7C3AED',
+  Farmland: '#B45309',
 };
 
 const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
@@ -31,7 +26,7 @@ const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
 };
 
 /** Property highlights shown in the detail grid */
-function buildHighlights(opportunity: (typeof OPPORTUNITIES)[0]) {
+function buildHighlights(opportunity: Opportunity) {
   return [
     { icon: TrendingUp,  label: 'Expected Return',  value: opportunity.returns },
     { icon: Shield,      label: 'Status',            value: opportunity.status },
@@ -43,7 +38,7 @@ function buildHighlights(opportunity: (typeof OPPORTUNITIES)[0]) {
 }
 
 /** Feature bullets generated for the detail page body */
-function buildFeatures(opportunity: (typeof OPPORTUNITIES)[0]): string[] {
+function buildFeatures(opportunity: Opportunity): string[] {
   const featuresByType: Record<string, string[]> = {
     Commercial: [
       'Triple-net lease structure with blue-chip anchor tenant',
@@ -84,24 +79,67 @@ function buildFeatures(opportunity: (typeof OPPORTUNITIES)[0]): string[] {
  */
 export default function OpportunityDetailPage() {
   const { id } = useParams<{ id: string }>();
-  const opportunity = OPPORTUNITIES.find((o) => o.id === id);
 
-  // Redirect unknown IDs to the listing page
-  if (!opportunity) {
+  const [opportunity, setOpportunity] = useState<Opportunity | null>(null);
+  const [similar, setSimilar] = useState<Opportunity[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  useEffect(() => {
+    if (!id) return;
+
+    setIsLoading(true);
+
+    fetchOpportunityById(id)
+      .then(async (data) => {
+        if (!data) {
+          setNotFound(true);
+          return;
+        }
+
+        setOpportunity(data);
+
+        const all = await fetchOpportunities();
+
+        setSimilar(
+          all
+            .filter((o) => o.type === data.type && o.id !== data.id)
+            .slice(0, 3)
+        );
+      })
+      .catch(() => setNotFound(true))
+      .finally(() => setIsLoading(false));
+  }, [id]);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2
+          size={24}
+          className="animate-spin"
+          style={{ color: COLORS.gold }}
+        />
+      </div>
+    );
+  }
+
+  if (notFound || !opportunity) {
     return <Navigate to="/opportunities" replace />;
   }
 
-  const highlights = buildHighlights(opportunity);
-  const features = buildFeatures(opportunity);
-  const statusStyle = STATUS_STYLES[opportunity.status];
-  const typeColor = TYPE_COLORS[opportunity.type];
+const highlights = buildHighlights(opportunity);
+const features = buildFeatures(opportunity);
 
-  // Three related opportunities from the same type (excluding self)
-  const similar = OPPORTUNITIES.filter(
-    (o) => o.type === opportunity.type && o.id !== opportunity.id
-  ).slice(0, 3);
+const statusStyle =
+  STATUS_STYLES[opportunity.status] ?? {
+    bg: '#E5E7EB',
+    color: '#374151',
+  };
 
-  return (
+const typeColor =
+  TYPE_COLORS[opportunity.type] ?? COLORS.navy;
+
+return (
     <>
       {/* ── Hero ── */}
       <div className="relative h-72 sm:h-96 lg:h-[480px] overflow-hidden" style={{ background: COLORS.navy }}>

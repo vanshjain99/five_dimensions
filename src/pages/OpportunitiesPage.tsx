@@ -1,9 +1,9 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Link } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, Building2, Search } from 'lucide-react';
+import { ChevronRight, Building2, Search, Loader2 } from 'lucide-react';
 import { COLORS, FONT_SERIF } from '../utils/constants';
-import { OPPORTUNITIES } from '../data/opportunities';
+import { fetchOpportunities } from '../lib/opportunitiesApi';
 import type { OpportunityFilters, Opportunity } from '../types';
 import FilterBar from '../components/opportunities/FilterBar';
 import OpportunityCard from '../components/opportunities/OpportunityCard';
@@ -81,7 +81,11 @@ function applyFilters(
 }
 
 /** Page hero with breadcrumb, title, subtitle, and headline metrics */
-function OpportunitiesHero() {
+function OpportunitiesHero({
+  totalCount,
+}: {
+  totalCount: number;
+}) {
   return (
     <section
       className="pt-20 pb-10 lg:pt-28 lg:pb-12 relative overflow-hidden"
@@ -146,7 +150,7 @@ function OpportunitiesHero() {
           {/* Headline metrics row */}
           <div className="flex flex-wrap gap-8">
             {[
-              { value: `${OPPORTUNITIES.length}`, label: 'Active Projects' },
+              { value: `${totalCount}`, label: 'Active Projects' },
               { value: '6', label: 'Cities' },
               { value: '4', label: 'Asset Classes' },
             ].map(({ value, label }) => (
@@ -210,13 +214,24 @@ function EmptyState({ onClear }: { onClear: () => void }) {
  * - Animated card entrance; empty state with clear-filters CTA
  */
 export default function OpportunitiesPage() {
+  const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
   const [search, setSearch] = useState('');
   const [filters, setFilters] = useState<OpportunityFilters>(DEFAULT_FILTERS);
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
+  useEffect(() => {
+    fetchOpportunities()
+      .then(setOpportunities)
+      .catch(() => setLoadError('Unable to load opportunities right now.'))
+      .finally(() => setIsLoading(false));
+  }, []);
+
   const filteredItems = useMemo(
-    () => applyFilters(OPPORTUNITIES, search, filters),
-    [search, filters]
+    () => applyFilters(opportunities, search, filters),
+    [opportunities, search, filters]
   );
 
   const visibleItems = filteredItems.slice(0, visibleCount);
@@ -240,13 +255,13 @@ export default function OpportunitiesPage() {
 
   return (
     <>
-      <OpportunitiesHero />
+      <OpportunitiesHero totalCount={opportunities.length} />
 
       <FilterBar
         search={search}
         filters={filters}
         resultCount={filteredItems.length}
-        totalCount={OPPORTUNITIES.length}
+        totalCount={opportunities.length}
         onSearchChange={handleSearchChange}
         onFilterChange={handleFilterChange}
         onClearAll={handleClearAll}
@@ -256,19 +271,29 @@ export default function OpportunitiesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Card grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <AnimatePresence mode="popLayout">
-              {visibleItems.length > 0 ? (
-                visibleItems.map((opportunity, index) => (
-                  <OpportunityCard
-                    key={opportunity.id}
-                    opportunity={opportunity}
-                    animationDelay={Math.min(index % PAGE_SIZE, 5) * 0.07}
-                  />
-                ))
-              ) : (
-                <EmptyState onClear={handleClearAll} />
-              )}
-            </AnimatePresence>
+            {isLoading ? (
+              <div className="col-span-full py-20 flex justify-center">
+                <Loader2 size={24} className="animate-spin" style={{ color: COLORS.gold }} />
+              </div>
+            ) : loadError ? (
+              <p className="col-span-full text-center text-sm py-20" style={{ color: `${COLORS.navy}77` }}>
+                {loadError}
+              </p>
+            ) : (
+              <AnimatePresence mode="popLayout">
+                {visibleItems.length > 0 ? (
+                  visibleItems.map((opportunity, index) => (
+                    <OpportunityCard
+                      key={opportunity.id}
+                      opportunity={opportunity}
+                      animationDelay={Math.min(index % PAGE_SIZE, 5) * 0.07}
+                    />
+                  ))
+                ) : (
+                  <EmptyState onClear={handleClearAll} />
+                )}
+              </AnimatePresence>
+            )}
           </div>
 
           {/* Load More button */}
