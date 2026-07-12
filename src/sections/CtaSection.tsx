@@ -74,6 +74,14 @@ export default function CtaSection() {
                 >
                   +91 9711193630
                 </Button>
+                <Button
+                  variant="outline-white"
+                  size="lg"
+                  href="tel:+7042756678"
+                  icon={<Phone size={15} />}
+                >
+                  +91 7042756678
+                </Button>
               </div>
             </div>
           </div>
