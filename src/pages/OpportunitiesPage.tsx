@@ -287,6 +287,7 @@ export default function OpportunitiesPage() {
     'name': 'Investment-Grade Real Estate Opportunities',
     'description': 'Browse pre-vetted commercial and residential real estate listings in Delhi NCR. Every property passes our rigorous 47-point legal and financial due diligence audit.',
     'url': 'https://fivedimensions.in/opportunities',
+    'keywords': 'flats in Noida, plots in Noida, commercial property, apartment buying, investment in flats, land, buy property Noida, commercial property Noida, luxury flats Noida, luxury property Noida, commercial real estate Noida, residential property Noida, buy flat Noida, buy land Noida',
     'breadcrumb': {
       '@type': 'BreadcrumbList',
       'itemListElement': [
@@ -309,8 +310,8 @@ export default function OpportunitiesPage() {
   return (
     <>
       <SEO
-        title="Investment-Grade Real Estate Opportunities"
-        description="Browse pre-vetted commercial and residential real estate listings in Delhi NCR. Every property passes our rigorous 47-point legal and financial due diligence audit."
+        title="Noida Property Listings & Investment Opportunities"
+        description="Find prime flats in Noida, commercial property, and residential plots for investment. Browse pre-vetted apartment buying and land opportunities."
         canonicalUrl="https://fivedimensions.in/opportunities"
         jsonLd={opportunitiesSchema}
       />

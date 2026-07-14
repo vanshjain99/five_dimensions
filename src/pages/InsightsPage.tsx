@@ -189,6 +189,7 @@ export default function InsightsPage() {
         '@id': 'https://fivedimensions.in/insights/#blog',
         'name': 'Five Dimensions Market Insights',
         'description': 'Research, analysis, and perspective from our advisory desk.',
+        'keywords': 'Noida real estate, property investment, real estate Noida, flats in Noida, investment in flats, Noida property, real estate, commercial real estate Noida, residential property Noida',
         'publisher': {
           '@type': 'Organization',
           'name': 'Five Dimensions',
@@ -219,8 +220,8 @@ export default function InsightsPage() {
   return (
     <>
       <SEO
-        title="Market Insights & Intelligence"
-        description="Stay ahead of the real estate market. Read research, analysis, and on-the-ground perspective from our luxury real estate advisory desk."
+        title="Noida Real Estate Market Insights & Property Investment Guides"
+        description="Stay updated on the Noida real estate market. Read expert property investment guides, flats in Noida analysis, and land valuation insights."
         canonicalUrl="https://fivedimensions.in/insights"
         jsonLd={insightsSchema}
       />

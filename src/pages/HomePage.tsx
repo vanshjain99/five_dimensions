@@ -48,6 +48,7 @@ export default function HomePage() {
         'url': 'https://fivedimensions.in',
         'name': 'Five Dimensions',
         'description': 'Delhi NCR\'s premium investment-grade real estate advisory and bespoke wealth architecture.',
+        'keywords': 'real estate, property investment, real estate Noida, Noida property, property in Noida, investment, Noida real estate, property advisory Noida, real estate agent Noida, best property Noida',
         'publisher': {
           '@id': 'https://fivedimensions.in/#organization'
         }
@@ -104,8 +105,8 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="Delhi NCR's Foremost Real Estate Advisory Desk"
-        description="We source, vet, and manage RERA-compliant, high-yield commercial and residential assets. Protect your capital with our rigorous 47-point due diligence audit."
+        title="Noida Real Estate & Property Investment Advisory"
+        description="Five Dimensions is Noida's premier real estate and property investment advisory. Secure pre-vetted land, commercial property, and luxury residential investments."
         canonicalUrl="https://fivedimensions.in"
         jsonLd={homeSchema}
       />
