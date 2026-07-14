@@ -47,14 +47,13 @@ export default function CtaSection() {
                 className="text-3xl lg:text-5xl font-bold text-white mt-4 mb-5 leading-tight"
                 style={{ fontFamily: FONT_SERIF }}
               >
-                Your Wealth Strategy Starts With a Conversation
+                Ready to Build a Legally-Vetted, High-Yield Portfolio?
               </h2>
               <p
                 className="text-base lg:text-lg leading-relaxed mb-10 max-w-2xl mx-auto"
                 style={{ color: 'rgba(255,255,255,0.6)' }}
               >
-                Book a complimentary 30-minute consultation with a senior 5 Dimensions advisor. No
-                sales pitch — just clarity on how real estate fits your financial future.
+                Schedule a confidential 30-minute wealth architecture call. Get direct access to off-market institutional opportunities and RERA-compliant assets.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

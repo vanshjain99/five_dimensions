@@ -58,8 +58,7 @@ export default function WhyChooseSection() {
               Why Discerning Investors Choose 5 Dimensions
             </h2>
             <p className="text-base leading-relaxed mb-8" style={{ color: `${COLORS.navy}88` }}>
-              We are not a property portal. We are a wealth engineering firm that specialises in real
-              estate — a distinction our clients feel from the very first conversation.
+              We do not list properties; we engineer wealth. Every investment opportunity we present is filtered through a rigorous 47-point legal and financial audit, giving you total security and peace of mind.
             </p>
             <Button
               variant="gold"

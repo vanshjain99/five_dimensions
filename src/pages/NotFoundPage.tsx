@@ -1,14 +1,20 @@
 import { Link } from 'react-router';
 import { COLORS, FONT_SERIF } from '../utils/constants';
 import { Home, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 
 /** 404 fallback page — shown for any unmatched route */
 export default function NotFoundPage() {
   return (
-    <div
-      className="min-h-screen flex items-center justify-center px-4"
-      style={{ background: '#FAF6F0' }}
-    >
+    <>
+      <SEO
+        title="Page Not Found"
+        description="The page you are looking for does not exist or has been moved. Back to Five Dimensions Luxury Real Estate Advisory."
+      />
+      <div
+        className="min-h-screen flex items-center justify-center px-4"
+        style={{ background: '#FAF6F0' }}
+      >
       <div className="text-center max-w-md">
         <div
           className="text-8xl font-bold mb-4"
@@ -49,5 +55,6 @@ export default function NotFoundPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

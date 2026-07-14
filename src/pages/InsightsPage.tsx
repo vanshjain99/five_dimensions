@@ -5,10 +5,9 @@ import { COLORS, FONT_SERIF } from '../utils/constants';
 import { INSIGHTS } from '../data/insights';
 import InsightCard from '../components/insights/InsightCard';
 import InsightsFilterBar, { type SortOption } from '../components/insights/InsightsFilterBar';
-
-
 import { fetchInsights } from '../lib/insightsApi';
 import type { Insight } from '../types';
+import SEO from '../components/SEO';
 
 function applyFilters(
   items: Insight[],
@@ -182,8 +181,49 @@ export default function InsightsPage() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [activeId]);
 
+  const insightsSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Blog',
+        '@id': 'https://fivedimensions.in/insights/#blog',
+        'name': 'Five Dimensions Market Insights',
+        'description': 'Research, analysis, and perspective from our advisory desk.',
+        'publisher': {
+          '@type': 'Organization',
+          'name': 'Five Dimensions',
+          'url': 'https://fivedimensions.in'
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': 'https://fivedimensions.in/insights/#breadcrumb',
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://fivedimensions.in'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Insights',
+            'item': 'https://fivedimensions.in/insights'
+          }
+        ]
+      }
+    ]
+  };
+
   return (
     <>
+      <SEO
+        title="Market Insights & Intelligence"
+        description="Stay ahead of the real estate market. Read research, analysis, and on-the-ground perspective from our luxury real estate advisory desk."
+        canonicalUrl="https://fivedimensions.in/insights"
+        jsonLd={insightsSchema}
+      />
       <InsightsHero />
 
       <InsightsFilterBar

@@ -9,6 +9,7 @@ import { fetchOpportunityById, fetchOpportunities } from '../lib/opportunitiesAp
 import type { Opportunity } from '../types';
 import ConsultationForm from '../components/forms/ConsultationForm';
 import OpportunityCard from '../components/opportunities/OpportunityCard';
+import SEO from '../components/SEO';
 
 /** Badge colour map mirroring OpportunityCard — kept local to avoid coupling */
 const TYPE_COLORS: Record<string, string> = {
@@ -139,8 +140,73 @@ const statusStyle =
 const typeColor =
   TYPE_COLORS[opportunity.type] ?? COLORS.navy;
 
-return (
+  const detailSchema = opportunity ? {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'RealEstateListing',
+        '@id': `https://fivedimensions.in/opportunities/${opportunity.id}/#listing`,
+        'name': opportunity.title,
+        'description': opportunity.description,
+        'url': `https://fivedimensions.in/opportunities/${opportunity.id}`,
+        'image': opportunity.image,
+        'address': {
+          '@type': 'PostalAddress',
+          'addressLocality': opportunity.location,
+          'addressRegion': opportunity.city,
+          'addressCountry': 'IN'
+        },
+        'offers': {
+          '@type': 'Offer',
+          'price': opportunity.priceValue ? opportunity.priceValue * 100000 : undefined,
+          'priceCurrency': 'INR',
+          'priceSpecification': {
+            '@type': 'PriceSpecification',
+            'price': opportunity.price,
+            'priceCurrency': 'INR'
+          }
+        }
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `https://fivedimensions.in/opportunities/${opportunity.id}/#breadcrumb`,
+        'itemListElement': [
+          {
+            '@type': 'ListItem',
+            'position': 1,
+            'name': 'Home',
+            'item': 'https://fivedimensions.in'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 2,
+            'name': 'Opportunities',
+            'item': 'https://fivedimensions.in/opportunities'
+          },
+          {
+            '@type': 'ListItem',
+            'position': 3,
+            'name': opportunity.title,
+            'item': `https://fivedimensions.in/opportunities/${opportunity.id}`
+          }
+        ]
+      }
+    ]
+  } : undefined;
+
+  return (
     <>
+      {opportunity && (
+        <SEO
+          title={`${opportunity.title} — Real Estate Investment Opportunity`}
+          description={opportunity.description}
+          canonicalUrl={`https://fivedimensions.in/opportunities/${opportunity.id}`}
+          ogType="article"
+          ogImage={opportunity.image}
+          ogImageAlt={opportunity.alt}
+          jsonLd={detailSchema}
+        />
+      )}
       {/* ── Hero ── */}
       <div className="relative h-72 sm:h-96 lg:h-[480px] overflow-hidden" style={{ background: COLORS.navy }}>
         <img

@@ -1,20 +1,25 @@
+import { lazy } from 'react';
 import { createBrowserRouter } from 'react-router';
 import RootLayout from '../components/layout/RootLayout';
-import HomePage from '../pages/HomePage';
-import OpportunitiesPage from '../pages/OpportunitiesPage';
-import OpportunityDetailPage from '../pages/OpportunityDetailPage';
-import InsightsPage from '../pages/InsightsPage';
-import NotFoundPage from '../pages/NotFoundPage';
+import ServerErrorPage from '../pages/ServerErrorPage';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
+const OpportunitiesPage = lazy(() => import('../pages/OpportunitiesPage'));
+const OpportunityDetailPage = lazy(() => import('../pages/OpportunityDetailPage'));
+const InsightsPage = lazy(() => import('../pages/InsightsPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 /**
  * Application route tree.
  * RootLayout wraps every route — it renders Navbar + <Outlet> + Footer
  * so the shell is never re-mounted on navigation.
+ * Pages are code-split and lazy loaded to optimize Core Web Vitals.
  */
 export const router = createBrowserRouter([
   {
     path: '/',
     Component: RootLayout,
+    ErrorBoundary: ServerErrorPage,
     children: [
       { index: true, Component: HomePage },
       { path: 'opportunities', Component: OpportunitiesPage },

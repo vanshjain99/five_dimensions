@@ -4,8 +4,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite"
+    "prebuild": "node scripts/generate-sitemap.js",
+    "build": "vite build && node scripts/prerender-metadata.js",
+    "dev": "vite",
+    "deploy": "git push"
   },
   "dependencies": {
     "@emotion/react": "11.14.0",

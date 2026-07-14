@@ -1,10 +1,7 @@
 import { MapPin, Phone, Mail } from 'lucide-react';
+import { Link } from 'react-router';
 import { COLORS, FONT_SERIF } from '../../utils/constants';
-import {
-  FOOTER_SERVICE_LINKS,
-  FOOTER_COMPANY_LINKS,
-  FOOTER_SOCIAL_LINKS,
-} from '../../data/navigation';
+import { FOOTER_SOCIAL_LINKS } from '../../data/navigation';
 
 const CONTACT_ITEMS = [
   {
@@ -15,32 +12,25 @@ const CONTACT_ITEMS = [
   { icon: Mail, text: 'sachin.jaiparas@gmail.com' },
 ];
 
-/** Column of footer links with a shared label style */
-function FooterLinkColumn({ heading, links }: { heading: string; links: string[] }) {
-  return (
-    <div>
-      <h4 className="text-white font-semibold text-sm mb-4 tracking-wide">{heading}</h4>
-      {links.map((link) => (
-        <a
-          key={link}
-          href="#"
-          className="block text-sm mb-2.5 transition-colors hover:text-[#C9A96E]"
-          style={{ color: 'rgba(255,255,255,0.38)' }}
-        >
-          {link}
-        </a>
-      ))}
-    </div>
-  );
-}
+/** Map footer link names to semantic paths for proper multi-page internal linking */
+const LINK_ROUTING_MAP: Record<string, string> = {
+  'Commercial Advisory': '/opportunities?type=Commercial',
+  'Residential Investments': '/opportunities?type=Residential',
+  'Luxury Portfolio': '/opportunities?type=Luxury',
+  'Land & Plots': '/opportunities?type=Plots',
+  'NRI Services': '/#consultation',
+  'Portfolio Management': '/#services',
+  'About Us': '/#leadership',
+  'Our Team': '/#leadership',
+  'Market Insights': '/insights',
+  'Case Studies': '/insights',
+  'Careers': '/#consultation',
+  'Press': '/insights',
+};
 
-/**
- * Four-column site footer on a deep navy background.
- * Columns: brand + social, services, company, contact.
- */
 export default function Footer() {
   return (
-    <footer style={{ background: COLORS.navyDeep }} className="py-14">
+    <footer style={{ background: COLORS.navyDeep }} className="py-14" aria-label="Site Footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand column */}
@@ -69,11 +59,14 @@ export default function Footer() {
             {/* Social icon buttons */}
             <div className="flex gap-2.5">
               {FOOTER_SOCIAL_LINKS.map(({ label, title }) => (
-                <button
+                <a
                   key={label}
+                  href={`https://linkedin.com/company/five-dimensions`}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   title={title}
-                  aria-label={title}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-colors"
+                  aria-label={`Follow us on ${title}`}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-colors cursor-pointer"
                   style={{
                     background: 'rgba(255,255,255,0.06)',
                     color: 'rgba(255,255,255,0.45)',
@@ -86,26 +79,73 @@ export default function Footer() {
                   }
                 >
                   {label}
-                </button>
+                </a>
               ))}
             </div>
           </div>
 
-          <FooterLinkColumn heading="Services" links={FOOTER_SERVICE_LINKS} />
-          <FooterLinkColumn heading="Company" links={FOOTER_COMPANY_LINKS} />
+          {/* Services Column */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4 tracking-wide">Services</h4>
+            <ul className="space-y-2.5">
+              {['Commercial Advisory', 'Residential Investments', 'Luxury Portfolio', 'Land & Plots', 'NRI Services', 'Portfolio Management'].map((link) => (
+                <li key={link}>
+                  <Link
+                    to={LINK_ROUTING_MAP[link] ?? '/'}
+                    className="text-sm transition-colors hover:text-[#C9A96E]"
+                    style={{ color: 'rgba(255,255,255,0.38)' }}
+                  >
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Column */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4 tracking-wide">Company</h4>
+            <ul className="space-y-2.5">
+              {['About Us', 'Our Team', 'Market Insights', 'Case Studies', 'Careers', 'Press'].map((link) => (
+                <li key={link}>
+                  <Link
+                    to={LINK_ROUTING_MAP[link] ?? '/'}
+                    className="text-sm transition-colors hover:text-[#C9A96E]"
+                    style={{ color: 'rgba(255,255,255,0.38)' }}
+                  >
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* Contact column */}
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 tracking-wide">Contact</h4>
             <div className="space-y-3.5">
-              {CONTACT_ITEMS.map(({ icon: Icon, text }) => (
-                <div key={text} className="flex items-start gap-2.5">
-                  <Icon size={14} className="mt-0.5 flex-shrink-0" style={{ color: COLORS.gold }} />
-                  <span className="text-sm" style={{ color: 'rgba(255,255,255,0.38)' }}>
-                    {text}
-                  </span>
-                </div>
-              ))}
+              {CONTACT_ITEMS.map(({ icon: Icon, text }) => {
+                const isPhone = text.startsWith('+');
+                const isMail = text.includes('@');
+                return (
+                  <div key={text} className="flex items-start gap-2.5">
+                    <Icon size={14} className="mt-0.5 flex-shrink-0" style={{ color: COLORS.gold }} />
+                    {isPhone ? (
+                      <a href={`tel:${text.replace(/\s+/g, '')}`} className="text-sm transition-colors hover:text-[#C9A96E]" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                        {text}
+                      </a>
+                    ) : isMail ? (
+                      <a href={`mailto:${text}`} className="text-sm transition-colors hover:text-[#C9A96E]" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                        {text}
+                      </a>
+                    ) : (
+                      <span className="text-sm" style={{ color: 'rgba(255,255,255,0.38)' }}>
+                        {text}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

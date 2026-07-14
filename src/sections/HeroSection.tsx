@@ -26,20 +26,13 @@ export default function HeroSection() {
         <img
           src={HERO_IMAGE_URL}
           alt="Aerial view of luxury city skyline at night"
-          className="w-full h-full object-cover"
-          style={{ opacity: 0.55 }}
+          className="w-full h-full object-cover hero-bg-image"
           fetchPriority="high"
           loading="eager"
           decoding="async"
         />
         {/* Ivory-to-navy horizontal gradient — heavier on left for text legibility */}
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'linear-gradient(to right, rgba(250,248,245,0.96) 0%, rgba(250,248,245,0.78) 40%, rgba(250,248,245,0.38) 70%, rgba(26,39,68,0.55) 100%)',
-          }}
-        />
+        <div className="absolute inset-0 hero-overlay-gradient" />
         {/* Fade to ivory at the section bottom for seamless transition */}
         <div
           className="absolute inset-0"
@@ -80,16 +73,15 @@ export default function HeroSection() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] mb-6 tracking-tight"
               style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
             >
-              Where Capital Meets{' '}
+              Secure Your Wealth in Delhi NCR's Foremost{' '}
               <span className="italic" style={{ color: COLORS.gold }}>
-                Curated
+                Investment-Grade
               </span>{' '}
-              Opportunity
+              Real Estate
             </h1>
 
-            <p className="text-base lg:text-lg leading-relaxed mb-8 max-w-md" style={{ color: `${COLORS.navy}B3` }}>
-              Delhi NCR's foremost real estate investment consultancy — engineering bespoke wealth
-              strategies for discerning investors who expect more than a property listing.
+            <p className="text-base lg:text-lg leading-relaxed mb-8 max-w-md" style={{ color: COLORS.navy }}>
+              We source, vet, and manage RERA-compliant, high-yield commercial and residential assets. Protect your capital with our rigorous 47-point due diligence audit.
             </p>
 
             {/* Trust badges */}
@@ -97,7 +89,7 @@ export default function HeroSection() {
               {TRUST_BADGES.map(({ icon: Icon, text }) => (
                 <div key={text} className="flex items-center gap-2">
                   <Icon size={15} style={{ color: COLORS.gold }} />
-                  <span className="text-sm font-medium" style={{ color: `${COLORS.navy}99` }}>
+                  <span className="text-sm font-semibold" style={{ color: `${COLORS.navy}D9` }}>
                     {text}
                   </span>
                 </div>
@@ -150,10 +142,10 @@ export default function HeroSection() {
                   className="text-xl font-bold text-white"
                   style={{ fontFamily: FONT_SERIF }}
                 >
-                  Book Your Free Consultation
+                  Request a Free Strategy Session
                 </h2>
                 <p className="text-white/65 text-sm mt-1">
-                  A senior advisor will call you within 24 hours
+                  Confidential advice from a senior real estate architect. No obligation.
                 </p>
               </div>
 
@@ -164,6 +156,20 @@ export default function HeroSection() {
       </div>
 
       <style>{`
+        .hero-bg-image {
+          opacity: 0.38;
+        }
+        .hero-overlay-gradient {
+          background: linear-gradient(to bottom, rgba(250,248,245,0.98) 0%, rgba(250,248,245,0.9) 60%, rgba(250,248,245,0.5) 100%);
+        }
+        @media (min-width: 1024px) {
+          .hero-bg-image {
+            opacity: 0.55;
+          }
+          .hero-overlay-gradient {
+            background: linear-gradient(to right, rgba(250,248,245,0.96) 0%, rgba(250,248,245,0.78) 40%, rgba(250,248,245,0.38) 70%, rgba(26,39,68,0.55) 100%);
+          }
+        }
         @keyframes hero-fade-up {
           from { opacity: 0; transform: translateY(28px); }
           to { opacity: 1; transform: translateY(0); }

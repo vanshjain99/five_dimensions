@@ -119,6 +119,7 @@ export default function FilterBar({
             <Search size={15} style={{ color: `${COLORS.navy}66`, flexShrink: 0 }} />
             <input
               type="text"
+              aria-label="Search projects or locations"
               placeholder="Search projects or locations…"
               value={search}
               onChange={(e) => onSearchChange(e.target.value)}

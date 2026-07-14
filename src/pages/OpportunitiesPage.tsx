@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Link } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronRight, Building2, Search, Loader2 } from 'lucide-react';
 import { COLORS, FONT_SERIF } from '../utils/constants';
@@ -7,6 +7,7 @@ import { fetchOpportunities } from '../lib/opportunitiesApi';
 import type { OpportunityFilters, Opportunity } from '../types';
 import FilterBar from '../components/opportunities/FilterBar';
 import OpportunityCard from '../components/opportunities/OpportunityCard';
+import SEO from '../components/SEO';
 
 const PAGE_SIZE = 9;
 
@@ -218,8 +219,14 @@ export default function OpportunitiesPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const typeParam = searchParams.get('type');
+
   const [search, setSearch] = useState('');
-  const [filters, setFilters] = useState<OpportunityFilters>(DEFAULT_FILTERS);
+  const [filters, setFilters] = useState<OpportunityFilters>(() => ({
+    ...DEFAULT_FILTERS,
+    type: typeParam && ['Commercial', 'Residential', 'Luxury', 'Plots'].includes(typeParam) ? typeParam : 'All Types',
+  }));
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   useEffect(() => {
@@ -228,6 +235,16 @@ export default function OpportunitiesPage() {
       .catch(() => setLoadError('Unable to load opportunities right now.'))
       .finally(() => setIsLoading(false));
   }, []);
+
+  // Update filter state if the URL search query parameter changes (e.g. from footer link click)
+  useEffect(() => {
+    const type = searchParams.get('type');
+    if (type && ['Commercial', 'Residential', 'Luxury', 'Plots'].includes(type)) {
+      setFilters((prev) => ({ ...prev, type }));
+    } else if (!type) {
+      setFilters((prev) => ({ ...prev, type: 'All Types' }));
+    }
+  }, [searchParams]);
 
   const filteredItems = useMemo(
     () => applyFilters(opportunities, search, filters),
@@ -240,6 +257,16 @@ export default function OpportunitiesPage() {
   const handleFilterChange = (key: keyof OpportunityFilters, value: string) => {
     setFilters((prev) => ({ ...prev, [key]: value }));
     setVisibleCount(PAGE_SIZE); // Reset pagination when filters change
+
+    // Synchronize selected type to URL query parameters
+    if (key === 'type') {
+      if (value === 'All Types') {
+        searchParams.delete('type');
+      } else {
+        searchParams.set('type', value);
+      }
+      setSearchParams(searchParams, { replace: true });
+    }
   };
 
   const handleSearchChange = (value: string) => {
@@ -251,10 +278,42 @@ export default function OpportunitiesPage() {
     setSearch('');
     setFilters(DEFAULT_FILTERS);
     setVisibleCount(PAGE_SIZE);
+    setSearchParams(new URLSearchParams(), { replace: true });
+  };
+
+  const opportunitiesSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    'name': 'Investment-Grade Real Estate Opportunities',
+    'description': 'Browse pre-vetted commercial and residential real estate listings in Delhi NCR. Every property passes our rigorous 47-point legal and financial due diligence audit.',
+    'url': 'https://fivedimensions.in/opportunities',
+    'breadcrumb': {
+      '@type': 'BreadcrumbList',
+      'itemListElement': [
+        {
+          '@type': 'ListItem',
+          'position': 1,
+          'name': 'Home',
+          'item': 'https://fivedimensions.in'
+        },
+        {
+          '@type': 'ListItem',
+          'position': 2,
+          'name': 'Opportunities',
+          'item': 'https://fivedimensions.in/opportunities'
+        }
+      ]
+    }
   };
 
   return (
     <>
+      <SEO
+        title="Investment-Grade Real Estate Opportunities"
+        description="Browse pre-vetted commercial and residential real estate listings in Delhi NCR. Every property passes our rigorous 47-point legal and financial due diligence audit."
+        canonicalUrl="https://fivedimensions.in/opportunities"
+        jsonLd={opportunitiesSchema}
+      />
       <OpportunitiesHero totalCount={opportunities.length} />
 
       <FilterBar
