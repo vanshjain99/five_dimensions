@@ -27,6 +27,7 @@ export default function BuilderPartnersSection() {
               className="flex items-center justify-center px-2"
             >
               <div
+                role="img"
                 className="w-full max-w-[9.5rem] h-10 flex items-center justify-center transition-opacity duration-200 hover:opacity-100 opacity-70"
                 style={{ color: 'rgba(255,255,255,0.92)' }}
                 title={name}

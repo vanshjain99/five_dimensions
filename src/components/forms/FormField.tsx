@@ -3,6 +3,8 @@ import { COLORS } from '../../utils/constants';
 
 interface FormFieldProps {
   label: string;
+  /** Associates the label with a form control id for accessibility */
+  htmlFor?: string;
   /** Marks the field as required — renders a gold asterisk next to the label */
   required?: boolean;
   /** Shows "(optional)" hint when the field is not required */
@@ -14,10 +16,11 @@ interface FormFieldProps {
  * Labelled form field wrapper. Handles the consistent label style and
  * optional/required hints used across all consultation form inputs.
  */
-export function FormField({ label, required, showOptional, children }: FormFieldProps) {
+export function FormField({ label, htmlFor, required, showOptional, children }: FormFieldProps) {
   return (
     <div>
       <label
+        htmlFor={htmlFor}
         className="block text-xs font-semibold uppercase tracking-widest mb-1.5"
         style={{ color: COLORS.navy }}
       >

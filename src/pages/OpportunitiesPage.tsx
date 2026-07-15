@@ -341,7 +341,7 @@ export default function OpportunitiesPage() {
                 {loadError}
               </p>
             ) : (
-              <AnimatePresence mode="popLayout">
+              <AnimatePresence>
                 {visibleItems.length > 0 ? (
                   visibleItems.map((opportunity, index) => (
                     <OpportunityCard

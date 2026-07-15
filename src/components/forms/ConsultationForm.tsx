@@ -76,8 +76,9 @@ export default function ConsultationForm() {
 
   return (
     <form onSubmit={handleSubmit} className="px-6 py-6 space-y-4">
-      <FormField label="Full Name" required>
+      <FormField label="Full Name" required htmlFor="consultation-name">
         <StyledInput
+          id="consultation-name"
           type="text"
           required
           placeholder="Rajiv Mehta"
@@ -86,13 +87,14 @@ export default function ConsultationForm() {
         />
       </FormField>
 
-      <FormField label="Phone Number" required>
+      <FormField label="Phone Number" required htmlFor="consultation-phone">
         <div className="flex gap-2">
           <CountryCodeSelect
             value={formData.countryCode}
             onChange={(code) => handleFieldChange('countryCode', code)}
           />
           <StyledInput
+            id="consultation-phone"
             type="tel"
             required
             placeholder="98765 43210"
@@ -103,8 +105,9 @@ export default function ConsultationForm() {
         </div>
       </FormField>
 
-      <FormField label="Email Address" showOptional>
+      <FormField label="Email Address" showOptional htmlFor="consultation-email">
         <StyledInput
+          id="consultation-email"
           type="email"
           placeholder="rajiv@example.com"
           value={formData.email}
@@ -112,8 +115,9 @@ export default function ConsultationForm() {
         />
       </FormField>
 
-      <FormField label="Investment Budget" showOptional>
+      <FormField label="Investment Budget" showOptional htmlFor="consultation-budget">
         <StyledSelect
+          id="consultation-budget"
           value={formData.budget}
           hasValue={Boolean(formData.budget)}
           onChange={(e) => handleFieldChange('budget', e.target.value)}
