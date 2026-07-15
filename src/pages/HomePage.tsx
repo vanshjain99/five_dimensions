@@ -10,6 +10,8 @@ import FaqSection from '../sections/FaqSection';
 import CtaSection from '../sections/CtaSection';
 import BuilderPartnersSection from '../sections/BuilderPartnersSection';
 import SEO from '../components/SEO';
+import ScrollToTopButton from '../components/layout/ScrollToTopButton';
+import WhatsAppButton from '../components/layout/WhatsAppButton';
 
 /** Homepage — composes all marketing sections in sequence with SEO metadata. */
 export default function HomePage() {
@@ -121,6 +123,8 @@ export default function HomePage() {
       <InsightsSection />
       <FaqSection />
       <CtaSection />
+      <ScrollToTopButton />
+      <WhatsAppButton />
     </>
   );
 }
