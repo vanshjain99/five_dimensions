@@ -8,6 +8,8 @@ import { COLORS, FONT_SERIF } from '../utils/constants';
 import { fetchOpportunityById, fetchOpportunities } from '../lib/opportunitiesApi';
 import type { Opportunity } from '../types';
 import ConsultationForm from '../components/forms/ConsultationForm';
+import OptimizedImage from '../components/ui/OptimizedImage';
+
 import OpportunityCard from '../components/opportunities/OpportunityCard';
 import SEO from '../components/SEO';
 
@@ -209,11 +211,15 @@ const typeColor =
       )}
       {/* ── Hero ── */}
       <div className="relative h-72 sm:h-96 lg:h-[480px] overflow-hidden" style={{ background: COLORS.navy }}>
-        <img
+        <OptimizedImage
           src={opportunity.image}
           alt={opportunity.alt}
           className="w-full h-full object-cover"
           style={{ opacity: 0.55 }}
+          width={1200}
+          height={480}
+          fetchPriority="high"
+          loading="eager"
         />
         {/* Gradient overlay */}
         <div

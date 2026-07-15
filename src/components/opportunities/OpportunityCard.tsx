@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import { COLORS, FONT_SERIF } from '../../utils/constants';
 import type { Opportunity } from '../../types';
+import OptimizedImage from '../ui/OptimizedImage';
+
 
 interface OpportunityCardProps {
   opportunity: Opportunity;
@@ -72,11 +74,13 @@ export default function OpportunityCard({
     >
       {/* Property image */}
       <div className="relative h-48 overflow-hidden flex-shrink-0" style={{ background: '#E8E4DC' }}>
-        <img
+        <OptimizedImage
           src={image}
           alt={alt}
           loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          width={360}
+          height={192}
         />
 
         {/* Type badge — top left */}

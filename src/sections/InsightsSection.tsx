@@ -8,6 +8,8 @@ import { FEATURED_INSIGHTS } from '../data/insights';
 import { useState, useEffect } from 'react';
 import { fetchInsights } from '../lib/insightsApi';
 import SectionHeader from '../components/ui/SectionHeader';
+import OptimizedImage from '../components/ui/OptimizedImage';
+
 
 
 
@@ -30,12 +32,13 @@ function InsightCard({ insight, index }: { insight: Insight; index: number }) {
     >
       {/* Article image */}
       <div className="h-48 overflow-hidden" style={{ background: '#E8E4DC' }}>
-        <img
+        <OptimizedImage
           src={image}
           alt={alt}
           loading="lazy"
-          decoding="async"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          width={360}
+          height={192}
         />
       </div>
 

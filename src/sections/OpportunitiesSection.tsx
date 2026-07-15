@@ -7,6 +7,8 @@ import SectionHeader from '../components/ui/SectionHeader';
 import AnimatedSection from '../components/ui/AnimatedSection';
 import OpportunityCardSkeleton from '../components/opportunities/OpportunityCardSkeleton';
 import type { Opportunity } from '../types';
+import OptimizedImage from '../components/ui/OptimizedImage';
+
 
 /** Badge colour map for each property type */
 const TYPE_COLORS: Record<string, string> = {
@@ -28,7 +30,14 @@ function FeaturedCard({ opportunity, index }: { opportunity: Opportunity; index:
       style={{ background: 'white', borderColor: COLORS.border, boxShadow: '0 2px 12px rgba(26,39,68,0.06)' }}
     >
       <div className="relative h-44 overflow-hidden flex-shrink-0" style={{ background: '#E8E4DC' }}>
-        <img src={image} alt={alt} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        <OptimizedImage
+          src={image}
+          alt={alt}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          width={360}
+          height={176}
+          loading="lazy"
+        />
         <div className="absolute top-3 left-3">
           <span className="text-white text-xs font-semibold px-2.5 py-1 rounded-full" style={{ background: TYPE_COLORS[type] ?? COLORS.navy }}>
             {type}

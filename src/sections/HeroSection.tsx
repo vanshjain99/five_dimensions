@@ -1,6 +1,7 @@
 import { Shield, Award, Users } from 'lucide-react';
 import { COLORS, FONT_SERIF, HERO_IMAGE_URL } from '../utils/constants';
 import ConsultationForm from '../components/forms/ConsultationForm';
+import OptimizedImage from '../components/ui/OptimizedImage';
 
 const TRUST_BADGES = [
   { icon: Shield, text: 'RERA Compliant' },
@@ -23,13 +24,14 @@ export default function HeroSection() {
     <section id="consultation" className="relative min-h-screen flex items-center">
       {/* ── Background image with warm overlay ── */}
       <div className="absolute inset-0" style={{ background: COLORS.navy }}>
-        <img
+        <OptimizedImage
           src={HERO_IMAGE_URL}
           alt="Aerial view of luxury city skyline at night"
           className="w-full h-full object-cover hero-bg-image"
           fetchPriority="high"
           loading="eager"
-          decoding="async"
+          width={1200}
+          height={675}
         />
         {/* Ivory-to-navy horizontal gradient — heavier on left for text legibility */}
         <div className="absolute inset-0 hero-overlay-gradient" />

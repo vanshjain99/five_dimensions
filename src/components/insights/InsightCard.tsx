@@ -2,6 +2,8 @@ import { useRef } from 'react';
 import { X, Calendar, Clock, ExternalLink, User } from 'lucide-react';
 import { COLORS, FONT_SERIF } from '../../utils/constants';
 import type { Insight, InsightContentBlock } from '../../types';
+import OptimizedImage from '../ui/OptimizedImage';
+
 
 interface InsightCardProps {
   insight: Insight;
@@ -63,7 +65,14 @@ function ContentBlock({ block }: { block: InsightContentBlock }) {
     case 'image':
       return (
         <div className="my-5 rounded-xl overflow-hidden" style={{ background: '#E8E4DC' }}>
-          <img src={block.src} alt={block.alt ?? ''} className="w-full h-auto object-cover" loading="lazy" />
+          <OptimizedImage
+            src={block.src}
+            alt={block.alt ?? ''}
+            className="w-full h-auto object-cover"
+            loading="lazy"
+            width={800}
+            simpleImg={true}
+          />
         </div>
       );
     default:
@@ -109,12 +118,13 @@ export default function InsightCard({
           className="w-full sm:w-44 h-40 sm:h-28 rounded-xl overflow-hidden flex-shrink-0"
           style={{ background: '#E8E4DC' }}
         >
-          <img
+          <OptimizedImage
             src={insight.image}
             alt={insight.alt}
             loading="lazy"
-            decoding="async"
             className="w-full h-full object-cover"
+            width={360}
+            height={160}
           />
         </div>
 
