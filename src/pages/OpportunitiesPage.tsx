@@ -7,6 +7,7 @@ import { fetchOpportunities } from '../lib/opportunitiesApi';
 import type { OpportunityFilters, Opportunity } from '../types';
 import FilterBar from '../components/opportunities/FilterBar';
 import OpportunityCard from '../components/opportunities/OpportunityCard';
+import OpportunityCardSkeleton from '../components/opportunities/OpportunityCardSkeleton';
 import SEO from '../components/SEO';
 
 const PAGE_SIZE = 9;
@@ -310,7 +311,7 @@ export default function OpportunitiesPage() {
   return (
     <>
       <SEO
-        title="Noida Property Listings & Investment Opportunities"
+        title="Noida Property Listings & Investments"
         description="Find prime flats in Noida, commercial property, and residential plots for investment. Browse pre-vetted apartment buying and land opportunities."
         canonicalUrl="https://fivedimensions.in/opportunities"
         jsonLd={opportunitiesSchema}
@@ -332,9 +333,9 @@ export default function OpportunitiesPage() {
           {/* Card grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {isLoading ? (
-              <div className="col-span-full py-20 flex justify-center">
-                <Loader2 size={24} className="animate-spin" style={{ color: COLORS.gold }} />
-              </div>
+              Array.from({ length: 6 }).map((_, idx) => (
+                <OpportunityCardSkeleton key={idx} isCatalog={true} />
+              ))
             ) : loadError ? (
               <p className="col-span-full text-center text-sm py-20" style={{ color: `${COLORS.navy}77` }}>
                 {loadError}

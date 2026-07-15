@@ -73,7 +73,7 @@ export default function HeroSection() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.08] mb-6 tracking-tight"
               style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
             >
-              Secure Your Wealth in Delhi NCR's Foremost{' '}
+              Secure Your Wealth in NCR's Foremost{' '}
               <span className="italic" style={{ color: COLORS.gold }}>
                 Investment-Grade
               </span>{' '}

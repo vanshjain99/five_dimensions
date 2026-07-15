@@ -1,0 +1,11 @@
+# Enable Rewrite Engine
+RewriteEngine On
+
+# Redirect index.html and index.php to the root
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /index\.(html|php)\ HTTP/ [NC]
+RewriteRule ^index\.(html|php)$ / [R=301,L]
+
+# SPA Rewrite Rule: if requested file or directory does not exist, rewrite to index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

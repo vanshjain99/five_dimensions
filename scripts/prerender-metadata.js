@@ -6,12 +6,12 @@ const TEMPLATE_PATH = path.join(DIST_DIR, 'index.html');
 
 const PAGE_METADATA = {
   opportunities: {
-    title: 'Noida Property Listings & Investment Opportunities | Five Dimensions',
+    title: 'Noida Property Listings & Investments | Five Dimensions',
     description: 'Find prime flats in Noida, commercial property, and residential plots for investment. Browse pre-vetted apartment buying and land opportunities.',
     url: 'https://fivedimensions.in/opportunities',
   },
   insights: {
-    title: 'Noida Real Estate Market Insights & Property Investment Guides | Five Dimensions',
+    title: 'Noida Real Estate Insights & Guides | Five Dimensions',
     description: 'Stay updated on the Noida real estate market. Read expert property investment guides, flats in Noida analysis, and land valuation insights.',
     url: 'https://fivedimensions.in/insights',
   },
@@ -47,7 +47,7 @@ function prerender() {
 
   // Modify base dist/index.html for Homepage specifically
   const homeMeta = {
-    title: "Noida Real Estate & Property Investment Advisory | Five Dimensions",
+    title: "Noida Property Investment & Advisory | Five Dimensions",
     description: "Five Dimensions is Noida's premier real estate and property investment advisory. Secure pre-vetted land, commercial property, and luxury residential investments.",
     url: 'https://fivedimensions.in',
   };

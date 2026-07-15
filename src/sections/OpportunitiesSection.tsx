@@ -5,6 +5,7 @@ import { COLORS, FONT_SERIF } from '../utils/constants';
 import { fetchOpportunities } from '../lib/opportunitiesApi';
 import SectionHeader from '../components/ui/SectionHeader';
 import AnimatedSection from '../components/ui/AnimatedSection';
+import OpportunityCardSkeleton from '../components/opportunities/OpportunityCardSkeleton';
 import type { Opportunity } from '../types';
 
 /** Badge colour map for each property type */
@@ -75,14 +76,16 @@ function FeaturedCard({ opportunity, index }: { opportunity: Opportunity; index:
 
 export default function OpportunitiesSection() {
   const [opportunities, setOpportunities] = useState<Opportunity[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchOpportunities()
       .then((all) => setOpportunities(all.slice(0, 4)))
-      .catch(() => setOpportunities([]));
+      .catch(() => setOpportunities([]))
+      .finally(() => setIsLoading(false));
   }, []);
 
-  if (opportunities.length === 0) return null;
+  if (!isLoading && opportunities.length === 0) return null;
 
   return (
     <section id="opportunities" className="py-20 lg:py-28 bg-background">
@@ -94,9 +97,13 @@ export default function OpportunitiesSection() {
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {opportunities.map((opportunity, index) => (
-            <FeaturedCard key={opportunity.id} opportunity={opportunity} index={index} />
-          ))}
+          {isLoading
+            ? Array.from({ length: 4 }).map((_, idx) => (
+                <OpportunityCardSkeleton key={idx} />
+              ))
+            : opportunities.map((opportunity, index) => (
+                <FeaturedCard key={opportunity.id} opportunity={opportunity} index={index} />
+              ))}
         </div>
 
         <div className="text-center mt-10">

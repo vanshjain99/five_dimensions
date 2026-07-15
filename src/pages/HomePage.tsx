@@ -105,7 +105,7 @@ export default function HomePage() {
   return (
     <>
       <SEO
-        title="Noida Real Estate & Property Investment Advisory"
+        title="Noida Property Investment & Advisory"
         description="Five Dimensions is Noida's premier real estate and property investment advisory. Secure pre-vetted land, commercial property, and luxury residential investments."
         canonicalUrl="https://fivedimensions.in"
         jsonLd={homeSchema}

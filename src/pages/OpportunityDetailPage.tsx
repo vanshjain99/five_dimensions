@@ -198,7 +198,7 @@ const typeColor =
     <>
       {opportunity && (
         <SEO
-          title={`${opportunity.title} — Real Estate Investment Opportunity`}
+          title={`${opportunity.title} | Noida Property`}
           description={opportunity.description}
           canonicalUrl={`https://fivedimensions.in/opportunities/${opportunity.id}`}
           ogType="article"

@@ -220,7 +220,7 @@ export default function InsightsPage() {
   return (
     <>
       <SEO
-        title="Noida Real Estate Market Insights & Property Investment Guides"
+        title="Noida Real Estate Insights & Guides"
         description="Stay updated on the Noida real estate market. Read expert property investment guides, flats in Noida analysis, and land valuation insights."
         canonicalUrl="https://fivedimensions.in/insights"
         jsonLd={insightsSchema}
