@@ -61,7 +61,7 @@ function TestimonialCard({ testimonial, index }: { testimonial: Testimonial; ind
  */
 export default function TestimonialsSection() {
   return (
-    <section style={{ background: COLORS.navy }} className="py-20 lg:py-28">
+    <section id="reviews" style={{ background: COLORS.navy }} className="py-20 lg:py-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader
           overline="Client Stories"

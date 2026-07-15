@@ -12,11 +12,11 @@ interface OpportunityCardSkeletonProps {
 export default function OpportunityCardSkeleton({
   isCatalog = false,
 }: OpportunityCardSkeletonProps) {
-  const imageHeight = isCatalog ? 'h-48' : 'h-44';
+  const imageHeight = isCatalog ? 'h-48' : 'h-60';
 
   return (
     <div
-      className="animate-pulse rounded-2xl overflow-hidden border flex flex-col w-full"
+      className={`animate-pulse rounded-2xl overflow-hidden border flex flex-col w-full ${isCatalog ? '' : 'h-[600px]'}`}
       style={{
         background: 'white',
         borderColor: COLORS.border,
@@ -24,15 +24,17 @@ export default function OpportunityCardSkeleton({
       }}
     >
       {/* Property image skeleton placeholder */}
-      <div className={`w-full ${imageHeight}`} style={{ background: '#e2e8f0' }} />
+      <div className={`w-full ${isCatalog ? 'h-48' : 'h-[70%]'}`} style={{ background: '#e2e8f0' }} />
 
       {/* Card body skeleton placeholder */}
-      <div className="p-4 flex flex-col flex-1">
-        {/* Title skeleton */}
-        <div className="h-5 bg-slate-200 rounded-md w-3/4 mb-2" />
-        
-        {/* Location skeleton */}
-        <div className="h-3 bg-slate-200 rounded-md w-1/2 mb-4" />
+      <div className={`${isCatalog ? 'p-4 flex flex-col flex-1' : 'h-[30%] p-5 flex flex-col justify-between flex-shrink-0'}`}>
+        <div>
+          {/* Title skeleton */}
+          <div className="h-5 bg-slate-200 rounded-md w-3/4 mb-2" />
+          
+          {/* Location skeleton */}
+          <div className="h-3 bg-slate-200 rounded-md w-1/2" />
+        </div>
 
         {isCatalog && (
           /* Description skeleton (only rendered for catalog cards) */
@@ -44,8 +46,8 @@ export default function OpportunityCardSkeleton({
 
         {/* Price + ROI row skeleton */}
         <div
-          className="flex items-end justify-between py-3 border-t border-b mb-3 mt-auto"
-          style={{ borderColor: 'rgba(26,39,68,0.07)' }}
+          className={`${isCatalog ? 'flex items-end justify-between py-3 border-t border-b mb-3 mt-auto' : 'flex items-end justify-between'}`}
+          style={isCatalog ? { borderColor: 'rgba(26,39,68,0.07)' } : undefined}
         >
           <div className="space-y-1.5">
             <div className="h-2.5 bg-slate-200 rounded-md w-12" />
@@ -58,7 +60,7 @@ export default function OpportunityCardSkeleton({
         </div>
 
         {/* View Details CTA skeleton */}
-        <div className="h-9 bg-slate-200 rounded-xl w-full" />
+        <div className={`${isCatalog ? 'h-9' : 'h-10'} bg-slate-200 rounded-xl w-full`} />
       </div>
     </div>
   );

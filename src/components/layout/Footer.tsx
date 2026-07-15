@@ -35,21 +35,12 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand column */}
           <div>
-            <div className="flex items-center gap-2.5 mb-4">
-              <div
-                className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{
-                  background: `linear-gradient(135deg, ${COLORS.gold}, ${COLORS.goldDark})`,
-                }}
-              >
-                <span className="text-white font-bold text-xs">5D</span>
-              </div>
-              <span
-                className="text-white text-lg font-semibold"
-                style={{ fontFamily: FONT_SERIF }}
-              >
-                5 Dimensions
-              </span>
+            <div className="mb-5">
+              <img
+                src="/vertical-logo-white.svg"
+                alt="Five Dimensions"
+                className="h-16 w-auto object-contain"
+              />
             </div>
             <p className="text-sm leading-relaxed mb-5" style={{ color: 'rgba(255,255,255,0.38)' }}>
               Delhi NCR's premier real estate investment consultancy. Engineered for discerning

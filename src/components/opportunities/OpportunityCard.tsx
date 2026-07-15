@@ -59,7 +59,7 @@ export default function OpportunityCard({
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut', delay: animationDelay }}
-      className="group rounded-2xl overflow-hidden border flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1.5"
+      className="group rounded-2xl overflow-hidden border flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1.5 h-[600px]"
       style={{
         background: 'white',
         borderColor: COLORS.border,
@@ -73,14 +73,14 @@ export default function OpportunityCard({
       }
     >
       {/* Property image */}
-      <div className="relative h-48 overflow-hidden flex-shrink-0" style={{ background: '#E8E4DC' }}>
+      <div className="relative h-[70%] overflow-hidden flex-shrink-0" style={{ background: '#E8E4DC' }}>
         <OptimizedImage
           src={image}
           alt={alt}
           loading="lazy"
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          width={360}
-          height={192}
+          width={400}
+          height={420}
         />
 
         {/* Type badge — top left */}
@@ -113,38 +113,32 @@ export default function OpportunityCard({
       </div>
 
       {/* Card body */}
-      <div className="p-4 flex flex-col flex-1">
+      <div className="h-[30%] p-5 flex flex-col justify-between flex-shrink-0">
         {/* Title + location */}
-        <h3
-          className="text-base font-bold leading-snug mb-1"
-          style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
-        >
-          {title}
-        </h3>
-        <div
-          className="flex items-center gap-1 text-xs mb-2"
-          style={{ color: `${COLORS.navy}66` }}
-        >
-          <MapPin size={11} />
-          <span>{location}</span>
+        <div>
+          <h3
+            className="text-lg font-bold leading-snug mb-1 truncate"
+            style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
+          >
+            {title}
+          </h3>
+          <div
+            className="flex items-center gap-1 text-sm text-slate-500"
+            style={{ color: `${COLORS.navy}66` }}
+          >
+            <MapPin size={13} />
+            <span className="truncate">{location}</span>
+          </div>
         </div>
 
-        {/* One-line description */}
-        <p className="text-xs leading-relaxed mb-3 flex-1" style={{ color: `${COLORS.navy}77` }}>
-          {description}
-        </p>
-
         {/* Price + ROI row */}
-        <div
-          className="flex items-end justify-between py-3 border-t border-b mb-3"
-          style={{ borderColor: 'rgba(26,39,68,0.07)' }}
-        >
+        <div className="flex items-end justify-between">
           <div>
             <div className="text-xs mb-0.5" style={{ color: `${COLORS.navy}55` }}>
               Starting from
             </div>
             <div
-              className="text-xl font-bold"
+              className="text-2xl font-bold"
               style={{ fontFamily: FONT_SERIF, color: COLORS.gold }}
             >
               {price}
@@ -167,7 +161,7 @@ export default function OpportunityCard({
         {/* View Details CTA */}
         <Link
           to={`/opportunities/${id}`}
-          className="flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5 rounded-xl transition-all duration-200 group/btn"
+          className="flex items-center justify-center gap-1.5 text-sm font-semibold py-2.5 rounded-xl transition-all duration-200 group/btn"
           style={{
             border: `1.5px solid ${COLORS.gold}55`,
             color: COLORS.gold,

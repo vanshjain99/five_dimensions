@@ -16,14 +16,29 @@ import { NAV_LINKS } from '../../data/navigation';
  */
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { pathname } = useLocation();
 
-  const isInnerPage = pathname !== '/';
-  const showSolidBar = isScrolled || isInnerPage;
+  const showSolidBar = true;
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      setIsScrolled(currentScrollY > 60);
+
+      // Hide navbar when scrolling down past 80px, show when scrolling up
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -36,33 +51,27 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-      style={
-        showSolidBar
-          ? { background: 'rgba(255,255,255,0.96)', backdropFilter: 'blur(16px)', boxShadow: '0 1px 12px rgba(0,0,0,0.06)' }
-          : { background: 'transparent' }
-      }
+      className="fixed top-0 left-0 right-0 z-50 transition-transform duration-300"
+      style={{
+        background: 'rgba(255,255,255,0.96)',
+        backdropFilter: 'blur(16px)',
+        boxShadow: '0 1px 12px rgba(0,0,0,0.06)',
+        transform: isVisible || isMobileMenuOpen ? 'translateY(0)' : 'translateY(-100%)',
+      }}
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main Navigation">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <Link to="/" className="flex items-center gap-4" aria-label="Five Dimensions Home">
-            <div
-              className="w-12 h-12 lg:w-12 lg:h-12 rounded-full flex items-center justify-center flex-shrink-0"
-              style={{ background: `linear-gradient(135deg, ${COLORS.gold}, ${COLORS.goldDark})` }}
-            >
-              <span className="text-white font-bold text-lg tracking-tight">5D</span>
-            </div>
-            <span
-              className="font-bold text-xl lg:text-3xl tracking-wide transition-colors duration-200"
-              style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
-            >
-              Five Dimensions
-            </span>
+          <Link to="/" className="flex items-center" aria-label="Five Dimensions Home">
+            <img
+              src="/Horizontal-logo.svg"
+              alt="Five Dimensions"
+              className="h-12 lg:h-16 w-auto object-contain"
+            />
           </Link>
  
           <div className="hidden lg:flex items-center gap-8">
             {NAV_LINKS.map(({ label, href }) => {
-              const isActive = pathname === href || (href.startsWith('/#') && pathname === '/');
+              const isActive = pathname === href;
               return (
                 <Link
                   key={label}
@@ -113,7 +122,7 @@ export default function Navbar() {
         >
           <div className="px-5 py-4 flex flex-col gap-1">
             {NAV_LINKS.map(({ label, href }) => {
-              const isActive = pathname === href || (href.startsWith('/#') && pathname === '/');
+              const isActive = pathname === href;
               return (
                 <Link
                   key={label}
