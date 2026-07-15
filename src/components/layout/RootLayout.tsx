@@ -46,12 +46,14 @@ export default function RootLayout() {
       style={{ fontFamily: "'Inter', sans-serif" }}
     >
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow flex flex-col">
         <Suspense fallback={<PageLoader />}>
-          <Outlet />
+          <div className="flex-grow">
+            <Outlet />
+          </div>
+          <Footer />
         </Suspense>
       </main>
-      <Footer />
     </div>
   );
 }
