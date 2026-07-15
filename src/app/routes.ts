@@ -11,6 +11,7 @@ const AboutUsPage = lazy(() => import('../pages/AboutUsPage'));
 const ContactUsPage = lazy(() => import('../pages/ContactUsPage'));
 const PrivacyPolicyPage = lazy(() => import('../pages/PrivacyPolicyPage'));
 const TermsConditionsPage = lazy(() => import('../pages/TermsConditionsPage'));
+const LinksPage = lazy(() => import('../pages/LinksPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 /**
@@ -20,6 +21,10 @@ const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
  * Pages are code-split and lazy loaded to optimize Core Web Vitals.
  */
 export const router = createBrowserRouter([
+  {
+    path: '/links',
+    Component: LinksPage,
+  },
   {
     path: '/',
     Component: RootLayout,
