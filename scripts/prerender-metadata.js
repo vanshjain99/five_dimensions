@@ -35,6 +35,11 @@ const PAGE_METADATA = {
     description: 'Review the Terms & Conditions governing the use of Five Dimensions services, website, and advisory platform.',
     url: 'https://fivedimensions.in/terms-conditions',
   },
+  links: {
+    title: 'Connect with Us | Five Dimensions',
+    description: 'Quick links to call, chat, find office coordinates, or book a consultation with Five Dimensions Real Estate Advisory.',
+    url: 'https://fivedimensions.in/links',
+  },
 };
 
 function prerender() {
@@ -100,6 +105,15 @@ function prerender() {
   const termsHtml = injectMetadata(baseHtml, PAGE_METADATA.termsConditions);
   fs.writeFileSync(path.join(termsDir, 'index.html'), termsHtml);
   console.log('Generated pre-rendered dist/terms-conditions/index.html');
+
+  // Pre-render Links Page
+  const linksDir = path.join(DIST_DIR, 'links');
+  if (!fs.existsSync(linksDir)) {
+    fs.mkdirSync(linksDir, { recursive: true });
+  }
+  const linksHtml = injectMetadata(baseHtml, PAGE_METADATA.links);
+  fs.writeFileSync(path.join(linksDir, 'index.html'), linksHtml);
+  console.log('Generated pre-rendered dist/links/index.html');
 
   // Modify base dist/index.html for Homepage specifically
   const homeMeta = {
