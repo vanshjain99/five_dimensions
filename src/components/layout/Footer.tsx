@@ -25,7 +25,7 @@ const LINK_ROUTING_MAP: Record<string, string> = {
   'Market Insights': '/insights',
   'Case Studies': '/insights',
   'Careers': '/#consultation',
-  'Press': '/insights',
+  'Quick Links': '/links',
 };
 
 export default function Footer() {
@@ -87,7 +87,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 tracking-wide">Company</h4>
             <ul className="space-y-2.5">
-              {['About Us', 'Our Team', 'Market Insights', 'Case Studies', 'Careers', 'Press'].map((link) => (
+              {['About Us', 'Our Team', 'Market Insights', 'Case Studies', 'Careers', 'Quick Links'].map((link) => (
                 <li key={link}>
                   <Link
                     to={LINK_ROUTING_MAP[link] ?? '/'}
@@ -160,6 +160,13 @@ export default function Footer() {
               style={{ color: 'rgba(255,255,255,0.22)' }}
             >
               Contact Us
+            </Link>
+            <Link
+              to="/links"
+              className="text-xs transition-colors hover:text-white/50"
+              style={{ color: 'rgba(255,255,255,0.22)' }}
+            >
+              Quick Links
             </Link>
             <a
               href="#"
