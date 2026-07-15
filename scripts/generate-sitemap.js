@@ -16,6 +16,10 @@ async function generate() {
     '',
     '/opportunities',
     '/insights',
+    '/about-us',
+    '/contact-us',
+    '/privacy-policy',
+    '/terms-conditions',
     '/llms.txt',
     '/pricing.md',
   ];

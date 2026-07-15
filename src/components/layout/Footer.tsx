@@ -20,8 +20,8 @@ const LINK_ROUTING_MAP: Record<string, string> = {
   'Land & Plots': '/opportunities?type=Plots',
   'NRI Services': '/#consultation',
   'Portfolio Management': '/#services',
-  'About Us': '/#leadership',
-  'Our Team': '/#leadership',
+  'About Us': '/about-us',
+  'Our Team': '/about-us#founders',
   'Market Insights': '/insights',
   'Case Studies': '/insights',
   'Careers': '/#consultation',
@@ -50,27 +50,17 @@ export default function Footer() {
             {/* Social icon buttons */}
             <div className="flex gap-2.5">
               {FOOTER_SOCIAL_LINKS.map(({ label, title }) => (
-                <a
+                <span
                   key={label}
-                  href={`https://linkedin.com/company/five-dimensions`}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   title={title}
-                  aria-label={`Follow us on ${title}`}
-                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold transition-colors cursor-pointer"
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-semibold"
                   style={{
                     background: 'rgba(255,255,255,0.06)',
                     color: 'rgba(255,255,255,0.45)',
                   }}
-                  onMouseEnter={(e) =>
-                    (e.currentTarget.style.background = `${COLORS.gold}2A`)
-                  }
-                  onMouseLeave={(e) =>
-                    (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')
-                  }
                 >
                   {label}
-                </a>
+                </span>
               ))}
             </div>
           </div>
@@ -149,17 +139,35 @@ export default function Footer() {
           <p className="text-xs" style={{ color: 'rgba(255,255,255,0.22)' }}>
             © 2026 5 Dimensions Real Estate Advisory Pvt. Ltd. All rights reserved.
           </p>
-          <div className="flex gap-5">
-            {['Privacy Policy', 'Terms of Use', 'Disclaimer'].map((label) => (
-              <a
-                key={label}
-                href="#"
-                className="text-xs transition-colors hover:text-white/50"
-                style={{ color: 'rgba(255,255,255,0.22)' }}
-              >
-                {label}
-              </a>
-            ))}
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            <Link
+              to="/privacy-policy"
+              className="text-xs transition-colors hover:text-white/50"
+              style={{ color: 'rgba(255,255,255,0.22)' }}
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms-conditions"
+              className="text-xs transition-colors hover:text-white/50"
+              style={{ color: 'rgba(255,255,255,0.22)' }}
+            >
+              Terms & Conditions
+            </Link>
+            <Link
+              to="/contact-us"
+              className="text-xs transition-colors hover:text-white/50"
+              style={{ color: 'rgba(255,255,255,0.22)' }}
+            >
+              Contact Us
+            </Link>
+            <a
+              href="#"
+              className="text-xs transition-colors hover:text-white/50"
+              style={{ color: 'rgba(255,255,255,0.22)' }}
+            >
+              Disclaimer
+            </a>
           </div>
         </div>
       </div>

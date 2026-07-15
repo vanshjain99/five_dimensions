@@ -15,6 +15,26 @@ const PAGE_METADATA = {
     description: 'Stay updated on the Noida real estate market. Read expert property investment guides, flats in Noida analysis, and land valuation insights.',
     url: 'https://fivedimensions.in/insights',
   },
+  aboutUs: {
+    title: 'About Us | Real Estate Advisory | Five Dimensions',
+    description: 'Discover the story behind Five Dimensions, Noida\'s premier real estate consultancy. Led by industry experts Sachin Jain and Praveen Kushwah.',
+    url: 'https://fivedimensions.in/about-us',
+  },
+  contactUs: {
+    title: 'Contact Us | Premium Property Advisory | Five Dimensions',
+    description: 'Get in touch with Noida\'s leading real estate consultancy. Reach our experts for pre-vetted land, commercial and luxury residential properties.',
+    url: 'https://fivedimensions.in/contact-us',
+  },
+  privacyPolicy: {
+    title: 'Privacy Policy | Five Dimensions',
+    description: 'Read the Privacy Policy of Five Dimensions to understand how we collect, use, and protect your personal information.',
+    url: 'https://fivedimensions.in/privacy-policy',
+  },
+  termsConditions: {
+    title: 'Terms & Conditions | Five Dimensions',
+    description: 'Review the Terms & Conditions governing the use of Five Dimensions services, website, and advisory platform.',
+    url: 'https://fivedimensions.in/terms-conditions',
+  },
 };
 
 function prerender() {
@@ -44,6 +64,42 @@ function prerender() {
   const insHtml = injectMetadata(baseHtml, PAGE_METADATA.insights);
   fs.writeFileSync(path.join(insightsDir, 'index.html'), insHtml);
   console.log('Generated pre-rendered dist/insights/index.html');
+
+  // Pre-render About Us Page
+  const aboutDir = path.join(DIST_DIR, 'about-us');
+  if (!fs.existsSync(aboutDir)) {
+    fs.mkdirSync(aboutDir, { recursive: true });
+  }
+  const aboutHtml = injectMetadata(baseHtml, PAGE_METADATA.aboutUs);
+  fs.writeFileSync(path.join(aboutDir, 'index.html'), aboutHtml);
+  console.log('Generated pre-rendered dist/about-us/index.html');
+
+  // Pre-render Contact Us Page
+  const contactDir = path.join(DIST_DIR, 'contact-us');
+  if (!fs.existsSync(contactDir)) {
+    fs.mkdirSync(contactDir, { recursive: true });
+  }
+  const contactHtml = injectMetadata(baseHtml, PAGE_METADATA.contactUs);
+  fs.writeFileSync(path.join(contactDir, 'index.html'), contactHtml);
+  console.log('Generated pre-rendered dist/contact-us/index.html');
+
+  // Pre-render Privacy Policy Page
+  const privacyDir = path.join(DIST_DIR, 'privacy-policy');
+  if (!fs.existsSync(privacyDir)) {
+    fs.mkdirSync(privacyDir, { recursive: true });
+  }
+  const privacyHtml = injectMetadata(baseHtml, PAGE_METADATA.privacyPolicy);
+  fs.writeFileSync(path.join(privacyDir, 'index.html'), privacyHtml);
+  console.log('Generated pre-rendered dist/privacy-policy/index.html');
+
+  // Pre-render Terms & Conditions Page
+  const termsDir = path.join(DIST_DIR, 'terms-conditions');
+  if (!fs.existsSync(termsDir)) {
+    fs.mkdirSync(termsDir, { recursive: true });
+  }
+  const termsHtml = injectMetadata(baseHtml, PAGE_METADATA.termsConditions);
+  fs.writeFileSync(path.join(termsDir, 'index.html'), termsHtml);
+  console.log('Generated pre-rendered dist/terms-conditions/index.html');
 
   // Modify base dist/index.html for Homepage specifically
   const homeMeta = {

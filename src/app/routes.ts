@@ -7,6 +7,10 @@ const HomePage = lazy(() => import('../pages/HomePage'));
 const OpportunitiesPage = lazy(() => import('../pages/OpportunitiesPage'));
 const OpportunityDetailPage = lazy(() => import('../pages/OpportunityDetailPage'));
 const InsightsPage = lazy(() => import('../pages/InsightsPage'));
+const AboutUsPage = lazy(() => import('../pages/AboutUsPage'));
+const ContactUsPage = lazy(() => import('../pages/ContactUsPage'));
+const PrivacyPolicyPage = lazy(() => import('../pages/PrivacyPolicyPage'));
+const TermsConditionsPage = lazy(() => import('../pages/TermsConditionsPage'));
 const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
 
 /**
@@ -25,6 +29,10 @@ export const router = createBrowserRouter([
       { path: 'opportunities', Component: OpportunitiesPage },
       { path: 'opportunities/:id', Component: OpportunityDetailPage },
       { path: 'insights', Component: InsightsPage },
+      { path: 'about-us', Component: AboutUsPage },
+      { path: 'contact-us', Component: ContactUsPage },
+      { path: 'privacy-policy', Component: PrivacyPolicyPage },
+      { path: 'terms-conditions', Component: TermsConditionsPage },
       { path: '*', Component: NotFoundPage },
     ],
   },
