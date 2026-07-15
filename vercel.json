@@ -15,7 +15,7 @@
   "rewrites": [
     {
       "source": "/((?!assets/|robots.txt|sitemap.xml|llms.txt|pricing.md).*)",
-      "destination": "/index.html"
+      "destination": "/index"
     }
   ]
 }
