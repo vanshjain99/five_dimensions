@@ -69,7 +69,7 @@ export default function TestimonialsSection() {
           subtitle="Our greatest measure of success is the trust our clients place in us, year after year."
           light
         />
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 max-w-4xl mx-auto gap-6">
           {TESTIMONIALS.map((testimonial, index) => (
             <TestimonialCard key={testimonial.name} testimonial={testimonial} index={index} />
           ))}
