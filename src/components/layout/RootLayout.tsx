@@ -4,6 +4,8 @@ import { Loader2 } from 'lucide-react';
 import { COLORS } from '../../utils/constants';
 import Navbar from './Navbar';
 import Footer from './Footer';
+import ScrollToTopButton from './ScrollToTopButton';
+import WhatsAppButton from './WhatsAppButton';
 
 /** Simple premium page loader spinner shown when routing lazy chunks */
 function PageLoader() {
@@ -54,6 +56,8 @@ export default function RootLayout() {
           <Footer />
         </Suspense>
       </main>
+      <ScrollToTopButton />
+      <WhatsAppButton />
     </div>
   );
 }
