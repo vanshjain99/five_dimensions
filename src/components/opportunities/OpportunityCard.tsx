@@ -1,4 +1,4 @@
-import { MapPin, ArrowRight, TrendingUp } from 'lucide-react';
+import { MapPin, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router';
 import { motion } from 'motion/react';
 import { COLORS, FONT_SERIF } from '../../utils/constants';
@@ -43,7 +43,6 @@ export default function OpportunityCard({
     title,
     location,
     price,
-    returns,
     tag,
     status,
     description,
@@ -131,7 +130,7 @@ export default function OpportunityCard({
           </div>
         </div>
 
-        {/* Price + ROI row */}
+        {/* Price row */}
         <div className="flex items-end justify-between">
           <div>
             <div className="text-xs mb-0.5" style={{ color: `${COLORS.navy}55` }}>
@@ -142,18 +141,6 @@ export default function OpportunityCard({
               style={{ fontFamily: FONT_SERIF, color: COLORS.gold }}
             >
               {price}
-            </div>
-          </div>
-          <div className="text-right">
-            <div className="text-xs mb-0.5" style={{ color: `${COLORS.navy}55` }}>
-              Expected return
-            </div>
-            <div
-              className="flex items-center gap-1 text-sm font-semibold justify-end"
-              style={{ color: COLORS.navy }}
-            >
-              <TrendingUp size={13} style={{ color: COLORS.gold }} />
-              {returns}
             </div>
           </div>
         </div>

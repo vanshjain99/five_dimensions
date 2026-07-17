@@ -126,8 +126,6 @@ export interface Opportunity {
   city: string;
   price: string;
   priceValue: number;
-  returns: string;
-  roiValue: number;
   tag: string;
   status: string;
   description: string;

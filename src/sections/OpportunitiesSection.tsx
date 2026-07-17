@@ -21,7 +21,7 @@ const TYPE_COLORS: Record<string, string> = {
 
 /** Compact property card used in the homepage featured section */
 function FeaturedCard({ opportunity, index }: { opportunity: Opportunity; index: number }) {
-  const { id, type, title, location, price, returns, tag, image, alt } = opportunity;
+  const { id, type, title, location, price, tag, image, alt } = opportunity;
 
   return (
     <AnimatedSection
@@ -65,12 +65,6 @@ function FeaturedCard({ opportunity, index }: { opportunity: Opportunity; index:
           <div className="text-2xl font-bold" style={{ fontFamily: FONT_SERIF, color: COLORS.gold }}>
             {price}
           </div>
-          {returns && (
-            <div className="text-right">
-              <div className="text-xs" style={{ color: `${COLORS.navy}55` }}>Expected</div>
-              <div className="text-sm font-semibold" style={{ color: COLORS.navy }}>{returns}</div>
-            </div>
-          )}
         </div>
 
         <Link

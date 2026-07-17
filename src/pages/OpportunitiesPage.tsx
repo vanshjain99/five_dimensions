@@ -73,9 +73,6 @@ function applyFilters(
     case 'Price: High to Low':
       result.sort((a, b) => b.priceValue - a.priceValue);
       break;
-    case 'ROI: High to Low':
-      result.sort((a, b) => b.roiValue - a.roiValue);
-      break;
     // 'Newest' keeps original catalogue order
   }
 

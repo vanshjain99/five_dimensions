@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link, Navigate } from 'react-router';
 import { motion } from 'motion/react';
 import {
-  ChevronRight, MapPin, TrendingUp, Shield, Clock, ArrowLeft, CheckCircle2, Building2, Phone, Loader2,
+  ChevronRight, MapPin, Shield, Clock, ArrowLeft, CheckCircle2, Building2, Phone, Loader2,
 } from 'lucide-react';
 import { COLORS, FONT_SERIF } from '../utils/constants';
 import { fetchOpportunityById, fetchOpportunities } from '../lib/opportunitiesApi';
@@ -31,7 +31,6 @@ const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
 /** Property highlights shown in the detail grid */
 function buildHighlights(opportunity: Opportunity) {
   return [
-    { icon: TrendingUp,  label: 'Expected Return',  value: opportunity.returns },
     { icon: Shield,      label: 'Status',            value: opportunity.status },
     { icon: MapPin,      label: 'Location',          value: opportunity.location },
     { icon: Building2,   label: 'Asset Type',        value: opportunity.type },
@@ -326,18 +325,6 @@ const typeColor =
                     style={{ fontFamily: FONT_SERIF, color: COLORS.gold }}
                   >
                     {opportunity.price}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="text-xs mb-1" style={{ color: 'rgba(255,255,255,0.5)' }}>
-                    Expected Return
-                  </div>
-                  <div
-                    className="text-2xl font-bold text-white flex items-center gap-2 justify-end"
-                    style={{ fontFamily: FONT_SERIF }}
-                  >
-                    <TrendingUp size={20} style={{ color: COLORS.gold }} />
-                    {opportunity.returns}
                   </div>
                 </div>
               </div>

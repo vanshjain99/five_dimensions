@@ -10,8 +10,6 @@ interface OpportunityRow {
   city: string;
   price: string;
   price_value: number;
-  returns: string;
-  roi_value: number;
   tag: string;
   status: string;
   description: string;
@@ -28,8 +26,6 @@ function mapRow(row: OpportunityRow): Opportunity {
     city: row.city,
     price: row.price,
     priceValue: row.price_value,
-    returns: row.returns,
-    roiValue: row.roi_value,
     tag: row.tag,
     status: row.status,
     description: row.description,

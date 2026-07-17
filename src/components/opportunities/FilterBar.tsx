@@ -25,7 +25,7 @@ const FILTER_OPTIONS = {
     '₹10 Cr+',
   ],
   status: ['Any Status', 'Ready Possession', 'Under Construction', 'New Launch'],
-  sortBy: ['Newest', 'Price: Low to High', 'Price: High to Low', 'ROI: High to Low'],
+  sortBy: ['Newest', 'Price: Low to High', 'Price: High to Low'],
 };
 
 interface SelectFilterProps {
