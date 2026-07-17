@@ -467,7 +467,7 @@ const typeColor =
 
               {/* Phone CTA */}
               <a
-                href="tel:+912234567890"
+                href="tel:+919711193630"
                 className="mt-3 flex items-center justify-center gap-2 w-full py-3 rounded-xl border text-sm font-medium transition-all hover:bg-white"
                 style={{
                   borderColor: COLORS.border,
@@ -476,7 +476,7 @@ const typeColor =
                 }}
               >
                 <Phone size={14} style={{ color: COLORS.gold }} />
-                Call +91 22 3456 7890
+                Call +91 9711193630
               </a>
             </div>
           </div>
