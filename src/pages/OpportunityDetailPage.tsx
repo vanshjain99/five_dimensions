@@ -452,53 +452,58 @@ const whatsappUrl = `https://wa.me/919711193630?text=${encodeURIComponent(whatsa
                     An advisor will call within 24 hours
                   </p>
                 </div>
+
+                <div className="px-6 pt-6 flex flex-col gap-2">
+                  {/* Phone CTA */}
+                  <a
+                    href="tel:+919711193630"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border text-sm font-medium transition-all hover:bg-[#FAF6F0]"
+                    style={{
+                      borderColor: COLORS.border,
+                      color: `${COLORS.navy}88`,
+                      background: 'transparent',
+                    }}
+                  >
+                    <Phone size={14} style={{ color: COLORS.gold }} />
+                    Call +91 9711193630
+                  </a>
+
+                  {/* WhatsApp CTA */}
+                  <a
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border text-sm font-semibold transition-all"
+                    style={{
+                      borderColor: 'rgba(37, 211, 102, 0.25)',
+                      color: '#1E7C41',
+                      background: 'rgba(37, 211, 102, 0.04)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(37, 211, 102, 0.08)';
+                      e.currentTarget.style.borderColor = 'rgba(37, 211, 102, 0.4)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'rgba(37, 211, 102, 0.04)';
+                      e.currentTarget.style.borderColor = 'rgba(37, 211, 102, 0.25)';
+                    }}
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4 fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      style={{ color: '#1E7C41' }}
+                    >
+                      <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.63 2.052 14.155.855 11.57.855 6.133.855 1.708 5.224 1.704 10.652c-.001 1.728.455 3.417 1.32 4.908l-.993 3.629 3.73-.977c1.472.8 3.047 1.22 4.673 1.22l.004-.002zm11.758-6.848c-.347-.174-2.054-1.014-2.369-1.129-.317-.115-.548-.174-.779.174-.23.347-.89 1.129-1.092 1.36-.202.23-.404.26-.75.085-.347-.174-1.464-.539-2.787-1.72-1.028-.918-1.722-2.052-1.923-2.4-.202-.347-.021-.534.153-.708.156-.156.347-.405.52-.608.174-.203.23-.347.347-.579.115-.23.058-.435-.029-.608-.086-.174-.779-1.88-1.067-2.574-.28-.675-.565-.584-.779-.595-.2-.01-.43-.01-.66-.01-.23 0-.605.087-.922.434-.317.347-1.21 1.184-1.21 2.887 0 1.702 1.239 3.345 1.412 3.577.174.23 2.438 3.725 5.906 5.22.825.356 1.47.568 1.97.727.828.263 1.58.226 2.176.137.663-.099 2.055-.84 2.343-1.652.29-.812.29-1.506.202-1.652-.088-.146-.318-.233-.665-.407z" />
+                    </svg>
+                    Chat on WhatsApp
+                  </a>
+
+                  <div className="border-b mt-4" style={{ borderColor: COLORS.border }}></div>
+                </div>
+
                 <ConsultationForm />
               </div>
-
-              {/* Phone CTA */}
-              <a
-                href="tel:+919711193630"
-                className="mt-3 flex items-center justify-center gap-2 w-full py-3 rounded-xl border text-sm font-medium transition-all hover:bg-[#FAF6F0]"
-                style={{
-                  borderColor: COLORS.border,
-                  color: `${COLORS.navy}88`,
-                  background: 'transparent',
-                }}
-              >
-                <Phone size={14} style={{ color: COLORS.gold }} />
-                Call +91 9711193630
-              </a>
-
-              {/* WhatsApp CTA */}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2 flex items-center justify-center gap-2 w-full py-3 rounded-xl border text-sm font-semibold transition-all"
-                style={{
-                  borderColor: 'rgba(37, 211, 102, 0.25)',
-                  color: '#1E7C41',
-                  background: 'rgba(37, 211, 102, 0.04)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.background = 'rgba(37, 211, 102, 0.08)';
-                  e.currentTarget.style.borderColor = 'rgba(37, 211, 102, 0.4)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.background = 'rgba(37, 211, 102, 0.04)';
-                  e.currentTarget.style.borderColor = 'rgba(37, 211, 102, 0.25)';
-                }}
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  className="h-4 w-4 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  style={{ color: '#1E7C41' }}
-                >
-                  <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.963C16.63 2.052 14.155.855 11.57.855 6.133.855 1.708 5.224 1.704 10.652c-.001 1.728.455 3.417 1.32 4.908l-.993 3.629 3.73-.977c1.472.8 3.047 1.22 4.673 1.22l.004-.002zm11.758-6.848c-.347-.174-2.054-1.014-2.369-1.129-.317-.115-.548-.174-.779.174-.23.347-.89 1.129-1.092 1.36-.202.23-.404.26-.75.085-.347-.174-1.464-.539-2.787-1.72-1.028-.918-1.722-2.052-1.923-2.4-.202-.347-.021-.534.153-.708.156-.156.347-.405.52-.608.174-.203.23-.347.347-.579.115-.23.058-.435-.029-.608-.086-.174-.779-1.88-1.067-2.574-.28-.675-.565-.584-.779-.595-.2-.01-.43-.01-.66-.01-.23 0-.605.087-.922.434-.317.347-1.21 1.184-1.21 2.887 0 1.702 1.239 3.345 1.412 3.577.174.23 2.438 3.725 5.906 5.22.825.356 1.47.568 1.97.727.828.263 1.58.226 2.176.137.663-.099 2.055-.84 2.343-1.652.29-.812.29-1.506.202-1.652-.088-.146-.318-.233-.665-.407z" />
-                </svg>
-                Chat on WhatsApp
-              </a>
             </div>
           </div>
         </div>
