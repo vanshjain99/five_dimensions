@@ -182,7 +182,7 @@ export default function PrivacyPolicyPage() {
                 </h2>
                 <p className="text-sm leading-relaxed" style={{ color: `${COLORS.navy}77` }}>
                   For questions or concerns regarding our privacy policies, please reach out to us at:<br />
-                  <strong>Email:</strong> sachin.jaiparas@gmail.com<br />
+                  <strong>Email:</strong> contact@fivedimensions.in<br />
                   <strong>Address:</strong> Bhutani Alphathum, A-707, Sector 90, Noida, Uttar Pradesh 201305
                 </p>
               </div>

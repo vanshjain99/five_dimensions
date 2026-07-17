@@ -40,7 +40,7 @@ export default function HomePage() {
           '@type': 'ContactPoint',
           'telephone': '+91 9711193630',
           'contactType': 'customer service',
-          'email': 'sachin.jaiparas@gmail.com',
+          'email': 'contact@fivedimensions.in',
           'areaServed': 'IN'
         }
       },

@@ -9,7 +9,7 @@ const CONTACT_ITEMS = [
     text: 'Bhutani Alphathum, A-707, Sector 90, Noida, Uttar Pradesh 201305',
   },
   { icon: Phone, text: '+91 9711193630' },
-  { icon: Mail, text: 'sachin.jaiparas@gmail.com' },
+  { icon: Mail, text: 'contact@fivedimensions.in' },
 ];
 
 /** Map footer link names to semantic paths for proper multi-page internal linking */

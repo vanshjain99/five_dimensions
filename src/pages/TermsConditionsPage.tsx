@@ -171,7 +171,7 @@ export default function TermsConditionsPage() {
                 <p className="text-sm leading-relaxed" style={{ color: `${COLORS.navy}77` }}>
                   If you have questions regarding these terms, please contact:
                   <br />
-                  <strong>Email:</strong> sachin.jaiparas@gmail.com<br />
+                  <strong>Email:</strong> contact@fivedimensions.in<br />
                   <strong>Address:</strong> Bhutani Alphathum, A-707, Sector 90, Noida, Uttar Pradesh 201305
                 </p>
               </div>

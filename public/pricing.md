@@ -15,6 +15,6 @@ We act as an independent fiduciary and wealth advisor for premium, investment-gr
 - **Ongoing Portfolio Management**: Bespoke quarterly reviews and yield optimization advisory included for premium clients (transactions executed through our advisory desk).
 
 ## Contact Information
-- **Email**: sachin.jaiparas@gmail.com
+- **Email**: contact@fivedimensions.in
 - **Phone / WhatsApp**: +91 9711193630
 - **Office**: Delhi NCR, India

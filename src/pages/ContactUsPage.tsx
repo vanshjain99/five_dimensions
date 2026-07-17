@@ -173,11 +173,11 @@ export default function ContactUsPage() {
                         Email Address
                       </h4>
                       <a
-                        href="mailto:sachin.jaiparas@gmail.com"
+                        href="mailto:contact@fivedimensions.in"
                         className="text-sm hover:underline transition-all"
                         style={{ color: `${COLORS.navy}77` }}
                       >
-                        sachin.jaiparas@gmail.com
+                        contact@fivedimensions.in
                       </a>
                     </div>
                   </div>

@@ -9,7 +9,7 @@ export default function LinksPage() {
   // Phone and WhatsApp configuration
   const rawPhone = '919711193630';
   const displayPhone = '+91 9711193630';
-  const emailAddress = 'sachin.jaiparas@gmail.com';
+  const emailAddress = 'contact@fivedimensions.in';
   const whatsappMsg = 'Hello Five Dimensions, I would like to know more about your property advisory services.';
   
   // Links
