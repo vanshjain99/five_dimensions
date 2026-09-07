@@ -30,8 +30,8 @@ export default function HomePage() {
           },
           {
             '@type': 'Person',
-            'name': 'Praveen Kushwah',
-            'jobTitle': 'Co-Founder & CEO'
+            'name': 'Vansh Jain',
+            'jobTitle': 'Co-Founder & CTO'
           }
         ],
         'contactPoint': {

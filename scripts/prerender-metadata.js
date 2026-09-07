@@ -17,7 +17,7 @@ const PAGE_METADATA = {
   },
   aboutUs: {
     title: 'About Us | Real Estate Advisory | Five Dimensions',
-    description: 'Discover the story behind Five Dimensions, Noida\'s premier real estate consultancy. Led by industry experts Sachin Jain and Praveen Kushwah.',
+    description: 'Discover the story behind Five Dimensions, Noida\'s premier real estate consultancy. Led by industry experts Sachin Jain and Vansh Jain.',
     url: 'https://fivedimensions.in/about-us',
   },
   contactUs: {

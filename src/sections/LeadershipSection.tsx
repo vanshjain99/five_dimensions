@@ -25,7 +25,10 @@ function LeaderCard({ leader, index }: { leader: Leader; index: number }) {
           loading="lazy"
           decoding="async"
           className="w-full h-full object-cover rounded-full"
-          style={{ background: '#EDE8DF' }}
+          style={{
+            background: '#EDE8DF',
+            objectPosition: leader.imagePosition || 'center center',
+          }}
         />
       </div>
 

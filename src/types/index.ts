@@ -48,6 +48,7 @@ export interface Leader {
   bio: string;
   image: string;
   alt: string;
+  imagePosition?: string;
 }
 
 /** A real estate developer partner shown in the logo strip */

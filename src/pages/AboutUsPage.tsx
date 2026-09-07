@@ -15,7 +15,7 @@ export default function AboutUsPage() {
         '@id': 'https://fivedimensions.in/about-us/#webpage',
         'url': 'https://fivedimensions.in/about-us',
         'name': 'About Us | Five Dimensions',
-        'description': 'Learn about Five Dimensions, Noida\'s premier real estate consultancy. Led by Sachin Jain and Praveen Kushwah.',
+        'description': 'Learn about Five Dimensions, Noida\'s premier real estate consultancy. Led by Sachin Jain and Vansh Jain.',
         'breadcrumb': {
           '@id': 'https://fivedimensions.in/about-us/#breadcrumb'
         }
@@ -68,7 +68,7 @@ export default function AboutUsPage() {
     <>
       <SEO
         title="About Us | Premium Real Estate Advisory"
-        description="Discover the story behind Five Dimensions, Delhi NCR's premier real estate consultancy. Led by industry experts Sachin Jain and Praveen Kushwah."
+        description="Discover the story behind Five Dimensions, Delhi NCR's premier real estate consultancy. Led by industry experts Sachin Jain and Vansh Jain."
         canonicalUrl="https://fivedimensions.in/about-us"
         jsonLd={aboutSchema}
       />

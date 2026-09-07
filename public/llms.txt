@@ -27,6 +27,6 @@ We maintain direct integration with tier-1 developer partners:
 
 ## Leadership & Contact
 - **Co-Founder & CEO**: Sachin Jain
-- **Co-Founder & CEO**: Praveen Kushwah
+- **Co-Founder & CTO**: Vansh Jain
 - **Contact Number**: +91 9711193630
 - **Email**: contact@fivedimensions.in
