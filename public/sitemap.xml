@@ -55,19 +55,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://fivedimensions.in/opportunities/ivory-county</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fivedimensions.in/opportunities/experion-saatori</loc>
-    <lastmod>2026-09-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fivedimensions.in/opportunities/farmhouses-noida</loc>
+    <loc>https://fivedimensions.in/opportunities/ace-arte</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -85,13 +73,25 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://fivedimensions.in/opportunities/farmhouses-noida</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fivedimensions.in/opportunities/ivory-county</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://fivedimensions.in/opportunities/clove-county</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://fivedimensions.in/opportunities/ace-arte</loc>
+    <loc>https://fivedimensions.in/opportunities/experion-saatori</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

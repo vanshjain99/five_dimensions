@@ -31,11 +31,11 @@ const STATUS_STYLES: Record<string, { bg: string; color: string }> = {
 /** Property highlights shown in the detail grid */
 function buildHighlights(opportunity: Opportunity) {
   return [
-    { icon: Shield,      label: 'Status',            value: opportunity.status },
-    { icon: MapPin,      label: 'Location',          value: opportunity.location },
-    { icon: Building2,   label: 'Asset Type',        value: opportunity.type },
-    { icon: Clock,       label: 'Highlight',         value: opportunity.tag },
-    { icon: CheckCircle2,label: 'Due Diligence',     value: '47-point verified' },
+    { icon: Shield, label: 'Status', value: opportunity.status },
+    { icon: MapPin, label: 'Location', value: opportunity.location },
+    { icon: Building2, label: 'Asset Type', value: opportunity.type },
+    { icon: Clock, label: 'Highlight', value: opportunity.tag },
+    { icon: CheckCircle2, label: 'Due Diligence', value: '47-point verified' },
   ];
 }
 
@@ -129,20 +129,20 @@ export default function OpportunityDetailPage() {
     return <Navigate to="/opportunities" replace />;
   }
 
-const highlights = buildHighlights(opportunity);
-const features = buildFeatures(opportunity);
+  const highlights = buildHighlights(opportunity);
+  const features = buildFeatures(opportunity);
 
-const statusStyle =
-  STATUS_STYLES[opportunity.status] ?? {
-    bg: '#E5E7EB',
-    color: '#374151',
-  };
+  const statusStyle =
+    STATUS_STYLES[opportunity.status] ?? {
+      bg: '#E5E7EB',
+      color: '#374151',
+    };
 
-const typeColor =
-  TYPE_COLORS[opportunity.type] ?? COLORS.navy;
+  const typeColor =
+    TYPE_COLORS[opportunity.type] ?? COLORS.navy;
 
-const whatsappMessage = `Hello Five Dimensions, I would like to know more about the property: ${opportunity.title} (${opportunity.location}).`;
-const whatsappUrl = `https://wa.me/919711193630?text=${encodeURIComponent(whatsappMessage)}`;
+  const whatsappMessage = `Hello Five Dimensions, I would like to know more about the property: ${opportunity.title} (${opportunity.location}).`;
+  const whatsappUrl = `https://wa.me/919711193630?text=${encodeURIComponent(whatsappMessage)}`;
 
   const detailSchema = opportunity ? {
     '@context': 'https://schema.org',
@@ -217,7 +217,7 @@ const whatsappUrl = `https://wa.me/919711193630?text=${encodeURIComponent(whatsa
           src={opportunity.image}
           alt={opportunity.alt}
           className="w-full h-full object-cover"
-          style={{ opacity: 0.55 }}
+          style={{ opacity: 0.75 }}
           width={1200}
           height={480}
           fetchPriority="high"
@@ -228,7 +228,7 @@ const whatsappUrl = `https://wa.me/919711193630?text=${encodeURIComponent(whatsa
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to top, rgba(26,39,68,0.95) 0%, rgba(26,39,68,0.5) 50%, rgba(26,39,68,0.2) 100%)',
+              'linear-gradient(to top, rgba(26,39,68,0.75) 0%, rgba(26,39,68,0.35) 0%, rgba(26,39,68,0.1) 100%)',
           }}
         />
 

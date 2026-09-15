@@ -58,112 +58,110 @@ export default function OpportunityCard({
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.45, ease: 'easeOut', delay: animationDelay }}
-      className="group rounded-2xl overflow-hidden border flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1.5 h-[600px]"
-      style={{
-        background: 'white',
-        borderColor: COLORS.border,
-        boxShadow: '0 2px 12px rgba(26,39,68,0.06)',
-      }}
-      onMouseEnter={(e) =>
-        (e.currentTarget.style.boxShadow = '0 16px 40px rgba(26,39,68,0.12)')
-      }
-      onMouseLeave={(e) =>
-        (e.currentTarget.style.boxShadow = '0 2px 12px rgba(26,39,68,0.06)')
-      }
+      className="h-[600px]"
     >
-      {/* Property image */}
-      <div className="relative h-[70%] overflow-hidden flex-shrink-0" style={{ background: '#E8E4DC' }}>
-        <OptimizedImage
-          src={image}
-          alt={alt}
-          loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          width={400}
-          height={420}
-        />
+      <Link
+        to={`/opportunities/${id}`}
+        className="group rounded-2xl overflow-hidden border flex flex-col cursor-pointer transition-all duration-300 hover:-translate-y-1.5 h-full block"
+        style={{
+          background: 'white',
+          borderColor: COLORS.border,
+          boxShadow: '0 2px 12px rgba(26,39,68,0.06)',
+        }}
+        onMouseEnter={(e) =>
+          (e.currentTarget.style.boxShadow = '0 16px 40px rgba(26,39,68,0.12)')
+        }
+        onMouseLeave={(e) =>
+          (e.currentTarget.style.boxShadow = '0 2px 12px rgba(26,39,68,0.06)')
+        }
+      >
+        {/* Property image */}
+        <div className="relative h-[70%] overflow-hidden flex-shrink-0" style={{ background: '#E8E4DC' }}>
+          <OptimizedImage
+            src={image}
+            alt={alt}
+            loading="lazy"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            width={400}
+            height={420}
+          />
 
-        {/* Type badge — top left */}
-        <span
-          className="absolute top-3 left-3 text-white text-xs font-semibold px-2.5 py-1 rounded-full"
-          style={{ background: typeColor }}
-        >
-          {type}
-        </span>
-
-        {/* Highlight tag — top right */}
-        <span
-          className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-          style={{
-            background: 'rgba(255,255,255,0.92)',
-            backdropFilter: 'blur(8px)',
-            color: COLORS.navy,
-          }}
-        >
-          {tag}
-        </span>
-
-        {/* Status badge — bottom left */}
-        <span
-          className="absolute bottom-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full"
-          style={{ background: statusStyle.bg, color: statusStyle.color }}
-        >
-          {status}
-        </span>
-      </div>
-
-      {/* Card body */}
-      <div className="h-[30%] p-5 flex flex-col justify-between flex-shrink-0">
-        {/* Title + location */}
-        <div>
-          <h3
-            className="text-lg font-bold leading-snug mb-1 truncate"
-            style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
+          {/* Type badge — top left */}
+          <span
+            className="absolute top-3 left-3 text-white text-xs font-semibold px-2.5 py-1 rounded-full"
+            style={{ background: typeColor }}
           >
-            {title}
-          </h3>
-          <div
-            className="flex items-center gap-1 text-sm text-slate-500"
-            style={{ color: `${COLORS.navy}66` }}
+            {type}
+          </span>
+
+          {/* Highlight tag — top right */}
+          <span
+            className="absolute top-3 right-3 text-xs font-semibold px-2.5 py-1 rounded-full"
+            style={{
+              background: 'rgba(255,255,255,0.92)',
+              backdropFilter: 'blur(8px)',
+              color: COLORS.navy,
+            }}
           >
-            <MapPin size={13} />
-            <span className="truncate">{location}</span>
-          </div>
+            {tag}
+          </span>
+
+          {/* Status badge — bottom left */}
+          <span
+            className="absolute bottom-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full"
+            style={{ background: statusStyle.bg, color: statusStyle.color }}
+          >
+            {status}
+          </span>
         </div>
 
-        {/* Price row */}
-        <div className="flex items-end justify-between">
+        {/* Card body */}
+        <div className="h-[30%] p-5 flex flex-col justify-between flex-shrink-0">
+          {/* Title + location */}
           <div>
-            <div className="text-xs mb-0.5" style={{ color: `${COLORS.navy}55` }}>
-              Starting from
-            </div>
-            <div
-              className="text-2xl font-bold"
-              style={{ fontFamily: FONT_SERIF, color: COLORS.gold }}
+            <h3
+              className="text-lg font-bold leading-snug mb-1 truncate"
+              style={{ fontFamily: FONT_SERIF, color: COLORS.navy }}
             >
-              {price}
+              {title}
+            </h3>
+            <div
+              className="flex items-center gap-1 text-sm text-slate-500"
+              style={{ color: `${COLORS.navy}66` }}
+            >
+              <MapPin size={13} />
+              <span className="truncate">{location}</span>
             </div>
           </div>
-        </div>
 
-        {/* View Details CTA */}
-        <Link
-          to={`/opportunities/${id}`}
-          className="flex items-center justify-center gap-1.5 text-sm font-semibold py-2.5 rounded-xl transition-all duration-200 group/btn"
-          style={{
-            border: `1.5px solid ${COLORS.gold}55`,
-            color: COLORS.gold,
-          }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.background = `${COLORS.gold}0D`)
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.background = 'transparent')
-          }
-        >
-          View Details
-          <ArrowRight size={12} className="group-hover/btn:translate-x-0.5 transition-transform" />
-        </Link>
-      </div>
+          {/* Price row */}
+          <div className="flex items-end justify-between">
+            <div>
+              <div className="text-xs mb-0.5" style={{ color: `${COLORS.navy}55` }}>
+                Starting from
+              </div>
+              <div
+                className="text-2xl font-bold"
+                style={{ fontFamily: FONT_SERIF, color: COLORS.gold }}
+              >
+                {price}
+              </div>
+            </div>
+          </div>
+
+          {/* View Details CTA */}
+          <div
+            className="flex items-center justify-center gap-1.5 text-sm font-semibold py-2.5 rounded-xl transition-all duration-200 group-hover:bg-[#C5A265]/10"
+            style={{
+              border: `1.5px solid ${COLORS.gold}55`,
+              color: COLORS.gold,
+            }}
+          >
+            View Details
+            <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+          </div>
+        </div>
+      </Link>
     </motion.article>
   );
 }
