@@ -45,8 +45,8 @@ export async function fetchOpportunities(): Promise<Opportunity[]> {
   const res1 = await supabase
     .from('opportunities')
     .select('*')
-    .order('display_order', { ascending: true, nullsFirst: false })
-    .order('created_at', { ascending: false });
+    .order('display_order', { ascending: true })
+    .order('updated_at', { ascending: false });
 
   if (!res1.error) {
     data = res1.data as OpportunityRow[];
@@ -54,7 +54,7 @@ export async function fetchOpportunities(): Promise<Opportunity[]> {
     const res2 = await supabase
       .from('opportunities')
       .select('*')
-      .order('created_at', { ascending: false });
+      .order('updated_at', { ascending: false });
 
     if (res2.error) {
       console.error('Error fetching opportunities:', res2.error);
@@ -65,12 +65,22 @@ export async function fetchOpportunities(): Promise<Opportunity[]> {
 
   const mapped = (data || []).map(mapRow);
   mapped.sort((a, b) => {
-    if (a.displayOrder !== undefined && b.displayOrder !== undefined) {
-      return a.displayOrder - b.displayOrder;
+    const hasOrderA = a.displayOrder !== undefined && a.displayOrder !== null;
+    const hasOrderB = b.displayOrder !== undefined && b.displayOrder !== null;
+
+    if (hasOrderA && hasOrderB) {
+      if (a.displayOrder! !== b.displayOrder!) {
+        return a.displayOrder! - b.displayOrder!;
+      }
+    } else if (hasOrderA) {
+      return -1;
+    } else if (hasOrderB) {
+      return 1;
     }
-    if (a.displayOrder !== undefined) return -1;
-    if (b.displayOrder !== undefined) return 1;
-    return 0;
+
+    const timeA = a.updatedAt ? new Date(a.updatedAt).getTime() : 0;
+    const timeB = b.updatedAt ? new Date(b.updatedAt).getTime() : 0;
+    return timeB - timeA;
   });
 
   return mapped;
