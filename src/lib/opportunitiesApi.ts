@@ -15,6 +15,8 @@ interface OpportunityRow {
   description: string;
   image_url: string;
   image_alt: string;
+  display_order?: number;
+  updated_at?: string;
 }
 
 function mapRow(row: OpportunityRow): Opportunity {
@@ -31,22 +33,47 @@ function mapRow(row: OpportunityRow): Opportunity {
     description: row.description,
     image: row.image_url,
     alt: row.image_alt,
+    displayOrder: row.display_order,
+    updatedAt: row.updated_at,
   };
 }
 
-/** Fetches every opportunity, newest first (insertion order via created_at) */
+/** Fetches every opportunity, ordered by custom admin order (display_order) then newest first */
 export async function fetchOpportunities(): Promise<Opportunity[]> {
-  const { data, error } = await supabase
+  let data: OpportunityRow[] | null = null;
+
+  const res1 = await supabase
     .from('opportunities')
     .select('*')
+    .order('display_order', { ascending: true, nullsFirst: false })
     .order('created_at', { ascending: false });
 
-  if (error) {
-    console.error('Error fetching opportunities:', error);
-    throw error;
+  if (!res1.error) {
+    data = res1.data as OpportunityRow[];
+  } else {
+    const res2 = await supabase
+      .from('opportunities')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (res2.error) {
+      console.error('Error fetching opportunities:', res2.error);
+      throw res2.error;
+    }
+    data = res2.data as OpportunityRow[];
   }
 
-  return (data as OpportunityRow[]).map(mapRow);
+  const mapped = (data || []).map(mapRow);
+  mapped.sort((a, b) => {
+    if (a.displayOrder !== undefined && b.displayOrder !== undefined) {
+      return a.displayOrder - b.displayOrder;
+    }
+    if (a.displayOrder !== undefined) return -1;
+    if (b.displayOrder !== undefined) return 1;
+    return 0;
+  });
+
+  return mapped;
 }
 
 /** Fetches a single opportunity by its slug id */

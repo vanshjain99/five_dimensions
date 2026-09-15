@@ -132,4 +132,6 @@ export interface Opportunity {
   description: string;
   image: string;
   alt: string;
+  displayOrder?: number;
+  updatedAt?: string;
 }
